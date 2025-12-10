@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Rouge+Script&family=Special+Gothic+Condensed+One&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+    --font-display: 'Rouge Script', cursive;
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  scrollbar-width: none;
+}
