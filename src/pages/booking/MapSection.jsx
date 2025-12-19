@@ -1,4 +1,5 @@
 import React, { useState, } from "react";
+import MapSectionMini from "./MapSectionMini";
 
 const MapSection = () => {
   const [mapType, setMapType] = useState("map"); // "map" or "satellite"
@@ -21,8 +22,10 @@ const MapSection = () => {
   };
 
   return (
-    <div
-      className={`rounded-t-3xl relative w-full max-w-[1046px] mx-auto rounded-6 overflow-hidden shadow-[0px_10px_25px_rgba(30,41,57,0.5)]
+    <>
+      <MapSectionMini/>
+      <div
+      className={`hidden md:block rounded-t-3xl relative w-full max-w-[1046px] mx-auto rounded-6 overflow-hidden shadow-[0px_10px_25px_rgba(30,41,57,0.5)]
  ${
         isFullScreen
           ? "fixed top-0 left-0 w-screen h-screen z-50"
@@ -103,6 +106,7 @@ const MapSection = () => {
         ⬜
       </button>
     </div>
+    </>
   );
 };
 

@@ -1,9 +1,12 @@
 import React from "react";
+import HeroMini from "./HeroMini";
 
 const HeroSection = () => {
 
   return (
-    <section className="relative w-full h-[700px] overflow-hidden">
+    <>
+    <HeroMini/>
+      <section className="relative w-full h-[700px] overflow-hidden hidden md:block">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <img
@@ -46,6 +49,7 @@ const HeroSection = () => {
       </div>
     </section>
 
+    </>
   );
 };
 

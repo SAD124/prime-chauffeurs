@@ -1,6 +1,10 @@
+import FooterMini from "./FooterMini";
+
 const Footer = () => {
   return (
-    <div className="max-w-[1200px] bg-white py-12 mx-auto">
+    <>
+      <FooterMini/>
+      <div className="max-w-[1200px] bg-white py-12 mx-auto hidden md:block">
 
       {/* ⭐ TOP ROW WITH 5 COLUMNS ⭐ */}
       <div className="grid grid-cols-5 gap-10 w-full">
@@ -63,6 +67,7 @@ const Footer = () => {
       </div>
 
     </div>
+    </>
   );
 };
 

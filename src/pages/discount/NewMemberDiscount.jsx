@@ -1,6 +1,10 @@
+import NewMemberDiscountMini from "./NewMemberDiscountMini";
+
 const NewMemberDiscount = () => {
   return (
-    <section className="relative w-full overflow-hidden py-35 border border-t-[#D4C5A0]">
+    <>
+      <NewMemberDiscountMini/>
+      <section className="relative w-full overflow-hidden py-25 border border-t-[#D4C5A0] hidden md:block">
 
       {/* Background Image */}
       <div
@@ -51,6 +55,7 @@ const NewMemberDiscount = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

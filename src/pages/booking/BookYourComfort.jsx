@@ -1,14 +1,17 @@
 "use client";
 
 import BookingForm from "./BookingForm";
+import BookYourComfortMini from "./BookYourComfortMini";
 import MapSection from "./MapSection";
 
 
 const BookYourComfort = () => {
   return (
-    <section className="w-full bg-[#1E1E1E] py-15 flex justify-center border border-t-[#D4C5A0]">
+    <>
+      <BookYourComfortMini/>
+      <section className="w-full bg-[#1E1E1E] py-15 lg:flex justify-center border border-t-[#D4C5A0] hidden md:block">
       {/* INNER MAIN DIV */}
-      <div className="w-full max-w-[850px] flex flex-col items-center gap-12 ">
+      <div className="w-full max-w-[850px] flex flex-col items-center gap-12">
 
         {/* HEADING + PARA */}
         <div className="w-full max-w-[572px] flex flex-col items-center gap-6 text-center ">
@@ -21,7 +24,7 @@ const BookYourComfort = () => {
           </h2>
 
           {/* Paragraph */}
-          <p className="font-roboto text-gray-400 text-[16px] leading-[150%] w-[542px] h-[54px]">
+          <p className="font-roboto text-gray-400 text-[18px] leading-[150%] w-[542px] h-[54px]">
             Book your premium ride now and discover transportation that truly
             understands your needs.
           </p>
@@ -39,6 +42,7 @@ const BookYourComfort = () => {
       </div>
       </div>
     </section>
+    </>
   );
 };
 

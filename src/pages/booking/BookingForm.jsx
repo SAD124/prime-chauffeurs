@@ -8,10 +8,13 @@ import AirportDropoff from "./AirportDropoff";
 import { Pin } from "lucide-react";
 import { IoChevronDown } from 'react-icons/io5';
 import CustomTimePicker from './CustomTimePicker';
+import BookingFormMini from './BookingFormMini';
 
 export default function BookingForm() {
   return (
-    <div className="w-full max-w-[1046px] mx-auto flex flex-col gap-5">
+    <>
+        <BookingFormMini/>
+      <div className="w-full max-w-[1046px] mx-auto lg:flex flex-col gap-5 hidden md:block">
 
       {/* TOP TABS */}
 <div className="flex flex-col gap-5">
@@ -35,7 +38,7 @@ export default function BookingForm() {
 
 
       {/* PICKUP LOCATION */}
-      <div className="flex items-center w-full h-[60px] bg-white rounded-md px-4 shadow-md">
+      <div className="flex items-center w-full h-[60px] bg-white rounded-md px-4 shadow-md border border-gray-300">
         <LuMapPin className="text-gray-800 w-5 h-5" />
         <input
           type="text"
@@ -53,7 +56,7 @@ export default function BookingForm() {
       </div>
 
       {/* DROP OFF LOCATION */}
-      <div className="flex items-center w-full h-[60px] bg-white rounded-md px-4 shadow-md">
+      <div className="flex items-center w-full h-[60px] bg-white rounded-md px-4 shadow-md border border-gray-300">
         <LuMapPin className="text-gray-800 w-5 h-5" />
         <input
           type="text"
@@ -66,12 +69,12 @@ export default function BookingForm() {
       </div>
 
       {/* DATE + TIME */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 ">
 
         {/* Pickup Date */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 ">
           <label className="text-[15px] font-medium text-gray-600">Pickup Date</label>
-          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center gap-3">
+          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center gap-3 border border-gray-300">
             <CalendarDays className="w-5 h-5" />
             <input
               type="date"
@@ -90,7 +93,7 @@ export default function BookingForm() {
 
         {/* Transfer Type */}
         <div className="flex flex-col gap-1">
-          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between">
+          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
             <div className='flex gap-2 justify-center items-center'>
               <Car className='h-5 w-5'/>
             <span className="text-gray-900">Select Transfer type</span>
@@ -101,7 +104,7 @@ export default function BookingForm() {
 
         {/* Extra Stop */}
         <div className="flex flex-col gap-1">
-          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between">
+          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
             <div className='flex gap-2 justify-center items-center'>
           <GoClock className="w-5 h-5" />
               <span className="text-gray-600">No Extra Stop</span>
@@ -114,7 +117,7 @@ export default function BookingForm() {
 
       {/* SELECT SEATS */}
       <div className="flex flex-col gap-1">
-        <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between">
+        <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
           <div className="flex items-center gap-3">
             <Armchair className="w-6 h-6 text-gray-800" />
             <span className="text-gray-800">Select Seats</span>
@@ -126,13 +129,13 @@ export default function BookingForm() {
       {/* SPECIAL NOTES */}
       <div className="flex flex-col gap-1">
         <label className="text-[14px] font-medium text-gray-500">Special Requests or Notes (Optional)</label>
-        <div className="relative w-full">
+        <div className="relative w-full border rounded-md border-gray-300 ">
       {/* Icon */}
       <FileText className="absolute top-8 left-4 -translate-y-1/2 text-gray-400 w-5 h-5" />
       <textarea
         rows={3}
         placeholder="Add any special requests, instructions or notes for your driver (e.g., luggage info, special requirements, etc.)"
-        className="w-full bg-white rounded-md shadow-md px-12 py-5 outline-none text-[15px]"
+        className="w-full bg-white rounded-md shadow-lg px-12 py-5 outline-none text-[15px]"
       />
     </div>
       </div>
@@ -143,5 +146,6 @@ export default function BookingForm() {
       </button>
 
     </div>
+    </>
   );
 }

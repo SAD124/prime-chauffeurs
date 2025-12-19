@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoChevronForward } from "react-icons/io5";
+import RidesTypeMini from "./RidesTypeMini";
 
 const RidesType = () => {
   const [active, setActive] = useState("airport");
@@ -10,10 +11,12 @@ const RidesType = () => {
     { id: "corporate", label: "Corporate rides", width: "w-[110px]" },
   ];
   return (
-    <section className="w-full bg-[#1E1E1E] flex flex-col items-center py-30 px-20 gap-13 border border-t-[#D4C5A0]">
+    <>
+    <RidesTypeMini/>
+      <section className="w-full bg-[#1E1E1E] py-30 px-20 gap-13 border border-t-[#D4C5A0] md:block hidden">
 
       {/* First Main Div */}
-      <div className="flex flex-col items-center gap-8 w-[1032px] max-w-[1380px] h-[190px]">
+      <div className="flex flex-col items-center gap-10 max-w-[1032px] w-full justify-center text-center m-auto">
 
         {/* Heading */}
         <h2 className="text-white font-roboto font-bold text-[35px] leading-[120%] text-center">
@@ -21,7 +24,7 @@ const RidesType = () => {
         </h2>
 
         {/* Description */}
-        <p className="text-gray-400 font-roboto font-normal text-[16px] leading-[150%] text-center w-[740px] h-[54px]">
+        <p className="text-gray-400 font-roboto font-normal text-[16px] leading-[150%] text-center max-w-[740px]">
           Our drivers are trained professionals, courteous and well versed in all your travelling needs. Quick, efficient, and reliableservice for your comfort
         </p>
 
@@ -42,7 +45,7 @@ const RidesType = () => {
       </div>
 
       {/* Second Main Div - Options */}
-      <div className="flex gap-8 w-[400px] mx-auto">
+      <div className="flex gap-8 w-[400px] mx-auto mt-14">
         {tabs.map((tab) => (
           <div
             key={tab.id}
@@ -62,6 +65,7 @@ const RidesType = () => {
       </div>
 
     </section>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PiAirplaneTilt } from "react-icons/pi";
 import { IoChevronDown } from "react-icons/io5";
+import AirportPickerMini from "./AirportPickerMini";
 
 export default function AirportPicker() {
   const [open, setOpen] = useState(false);
@@ -18,12 +19,14 @@ export default function AirportPicker() {
   ];
 
   return (
-    <div className="relative w-full">
+    <>
+      <AirportPickerMini/>
+      <div className="relative w-full hidden md:block">
       {/* BUTTON */}
       <button
         onClick={() => setOpen(!open)}
-        className="h-12 w-full flex items-center justify-between gap-3 
-                   rounded-md bg-gray-50 shadow-md border border-gray-300 px-4"
+        className="h-12 w-full lg:flex items-center justify-between gap-3 
+                   rounded-md bg-gray-50 shadow-md border border-gray-300 px-4 "
       >
         {/* LEFT SIDE — Icon + Text */}
         <div className="flex items-center gap-3">
@@ -53,5 +56,6 @@ export default function AirportPicker() {
         </div>
       )}
     </div>
+    </>
   );
 }

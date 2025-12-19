@@ -1,9 +1,12 @@
 import { Layers } from "lucide-react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
+import DownloadAppMini from "./DownloadAppMini";
 
 const DownloadApp = () => {
   return (
-    <section className="w-full bg-[#1E1E1E] py-24 border border-t-[#D4C5A0]">
+    <>
+      <DownloadAppMini/>
+      <section className="w-full bg-[#1E1E1E] py-24 border border-t-[#D4C5A0] hidden md:block">
       {/* Main container */}
       <div className="w-[1215px] h-[343px] mx-auto flex items-center justify-between">
 
@@ -71,6 +74,7 @@ const DownloadApp = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

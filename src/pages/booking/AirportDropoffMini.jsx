@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { PiAirplaneTilt } from "react-icons/pi";
 import { IoChevronDown } from "react-icons/io5";
-import AirportDropoffMini from "./AirportDropoffMini";
 
-export default function AirportDropoff() {
+export default function AirportDropoffMini() {
   const [open, setOpen] = useState(false);
 
   const airports = [
@@ -19,24 +18,22 @@ export default function AirportDropoff() {
   ];
 
   return (
-    <>
-      <AirportDropoffMini/>
-      <div className="relative w-full hidden md:block">
+    <div className="relative w-full md:hidden">
       {/* BUTTON */}
       <button
         onClick={() => setOpen(!open)}
-        className="h-12 w-full lg:flex items-center justify-between gap-3 
+        className="py-3 w-full flex items-center justify-between gap-3 
                    rounded-md bg-gray-50 shadow-md border border-gray-300 px-4 "
       >
         {/* LEFT SIDE — Icon + Text */}
         <div className="flex items-center gap-3">
-          <PiAirplaneTilt className="w-5 h-5 text-gray-400" />
-          <span className="font-medium text-gray-600">Select Airport as Drop-off</span>
+          <PiAirplaneTilt className="w-5 h-5 text-gray-400"/>
+          <span className="font-medium text-gray-600 text-[14px]">Select Airport as Drop-off</span>
         </div>
 
         {/* RIGHT SIDE — Dropdown Arrow */}
         <IoChevronDown
-          className={`w-5 h-5 transition-transform duration-200 ${
+          className={`w-4 h-4 transition-transform duration-200 ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -56,6 +53,5 @@ export default function AirportDropoff() {
         </div>
       )}
     </div>
-    </>
   );
 }

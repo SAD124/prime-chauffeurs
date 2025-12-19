@@ -1,3 +1,5 @@
+import WhyChooseUsMini from "./WhyChooseUsMini";
+
 const benefits = [
   {
     image: "/Images/choose1.webp",
@@ -18,7 +20,9 @@ const benefits = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="w-full bg-[#1E1E1E] py-20 flex justify-center">
+    <>
+      <WhyChooseUsMini/>
+      <section className="w-full bg-[#1E1E1E] py-20 justify-center hidden lg:flex">
       {/* Main container */}
       <div className="w-full max-w-[1200px] flex flex-col items-center gap-20">
 
@@ -73,6 +77,7 @@ const WhyChooseUs = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

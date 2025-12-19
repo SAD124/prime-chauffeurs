@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { GoClock } from "react-icons/go";
 import { IoChevronDown } from "react-icons/io5";
+import CustomTimePickerMini from "./CustomTimePickerMini";
 
 export default function CustomTimePicker() {
   const [open, setOpen] = useState(false);
@@ -31,24 +32,26 @@ export default function CustomTimePicker() {
   }
 
   return (
-    <div className="flex flex-col gap-1" ref={dropdownRef}>
-      <label className="text-[15px] font-medium text-gray-600">Pickup Time</label>
+    <>
+      <CustomTimePickerMini/>
+    <div className="lg:flex flex-col gap-2 hidden md:block" ref={dropdownRef}>
+      <label className="text-[13px] font-medium text-gray-600">Pickup Time</label>
 
       <div
-        className="relative h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between cursor-pointer"
+        className="relative py-4 bg-white rounded-md shadow-md px-4 flex items-center justify-between cursor-pointer border border-gray-300"
         onClick={() => setOpen(!open)}
       >
         {/* LEFT SIDE: Clock + Text */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <GoClock className="w-5 h-5" />
-          <span className={`${selectedTime ? "text-black" : "text-gray-700"}`}>
+          <span className={`${selectedTime ? "text-black" : "text-gray-800"}`}>
             {selectedTime || "Select Time"}
           </span>
         </div>
 
         {/* RIGHT SIDE: Dropdown Arrow */}
         <IoChevronDown
-          className={`w-4 h-4 text-gray-700 transition-transform duration-200 ${
+          className={`w-4 h-4 text-gray-800 transition-transform duration-200 ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -72,5 +75,6 @@ export default function CustomTimePicker() {
         )}
       </div>
     </div>
+    </>
   );
 }

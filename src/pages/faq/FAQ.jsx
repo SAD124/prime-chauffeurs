@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FiChevronDown } from 'react-icons/fi'
+import FAQMini from './FAQMini'
 
 const FAQ = () => {
   const faqData = [
@@ -22,7 +23,9 @@ const FAQ = () => {
   }
 
   return (
-    <section className="w-full bg-[#1E1E1E] opacity-100 border border-t-[#D4C5A0] py-20 ">
+    <>
+    <FAQMini/>
+      <section className="w-full bg-[#1E1E1E] opacity-100 border border-t-[#D4C5A0] py-20 hidden md:block">
       {/* Main Container */}
       <div className="w-[1144px] mx-auto flex flex-col gap-12  px-4">
         {/* Heading */}
@@ -84,6 +87,7 @@ const FAQ = () => {
 
       </div>
     </section>
+    </>
   )
 }
 
