@@ -31,7 +31,7 @@ export default function ContactPageMini() {
         <motion.div className="space-y-6 md:space-y-4" variants={childVariants}>
           <p>Connect</p>
           <h1 className="text-4xl md:text-5xl font-bold">Contact us</h1>
-          <p>Have questions? We’re here to help you get started.</p>
+          <p className="text-gray-300 text-[14px]">Have questions? We’re here to help you get started.</p>
           <div className="space-y-2 flex flex-col">
             <span>info@primechauffeursaustralia.com.au</span>
             <span>+61 4 1233 5176</span>
@@ -92,7 +92,7 @@ export default function ContactPageMini() {
           </label>
 
           {/* SUCCESS BOX */}
-          <motion.div className="flex justify-between items-start border border-gray-400 pl-3 py-2 bg-[#1E1E1E] mt-4 w-80 md:w-80" variants={childVariants}>
+          <motion.div className="flex justify-between items-start border border-gray-400 pl-3 py-2 bg-[#1E1E1E] mt-8 w-80 md:w-80" variants={childVariants}>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                 <Check className="w-4 h-4 text-white" />
@@ -110,7 +110,7 @@ export default function ContactPageMini() {
 
           <motion.button
             type="submit"
-            className="bg-[#f7c873] text-black px-10 py-3 rounded-md font-medium"
+            className="bg-[#f7c873] text-black px-10 py-3 rounded-md font-medium mt-3.5"
             variants={childVariants}
           >
             Send Message
