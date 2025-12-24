@@ -26,14 +26,6 @@ const MiniNavbar = () => {
     };
   }, [open]);
 
-  // Menu items array
-  const menuItems = [
-    { to: "/#rides", icon: Car, label: "Rides" },
-    { to: "/#services", icon: Briefcase, label: "Services" },
-    { to: "/#about", icon: Info, label: "About" },
-    { to: "/#app", icon: Smartphone, label: "App" },
-  ];
-
   return (
     <nav className="md:hidden fixed top-0 w-full z-50">
       {/* TOP BAR */}
@@ -44,7 +36,7 @@ const MiniNavbar = () => {
         </button>
 
         {/* CENTER LOGO */}
-        <Link to="/#main">
+        <Link to="/">
           <img src="/Images/logo.webp" alt="Logo" className="h-[60px] object-contain" />
         </Link>
 
@@ -66,33 +58,45 @@ const MiniNavbar = () => {
       >
         <div className="flex flex-col px-8 py-10 space-y-8">
           {/* HASHLINKS FOR SMOOTH SCROLL */}
-          {menuItems.map((item) => {
-  const Icon = item.icon;
-  return (
-    <HashLink
-      smooth
-      to={item.to}
-      key={item.label}
-      className="flex items-center gap-2 text-gray-900 font-medium"
-      onClick={() => {
-        setOpen(false);
-        // Scroll to target after sidebar closes
-        const targetId = item.to.split("#")[1]; // get section id
-        if (targetId) {
-          const el = document.getElementById(targetId);
-          if (el) {
-            setTimeout(() => {
-              el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }, 100); // small delay so sidebar closes first
-          }
-        }
-      }}
-    >
-      <Icon className="w-5 h-5" />
-      {item.label}
-    </HashLink>
-  );
-})}
+          <HashLink
+            smooth
+            to="/#ridesmini"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2"
+          >
+            <Car className="w-5 h-5" />
+            Rides
+          </HashLink>
+
+          <HashLink
+            smooth
+            to="/#servicesmini"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2"
+          >
+            <Briefcase className="w-5 h-5" />
+            Services
+          </HashLink>
+
+          <HashLink
+            smooth
+            to="/#aboutmini"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2"
+          >
+            <Info className="w-5 h-5" />
+            About
+          </HashLink>
+
+          <HashLink
+            smooth
+            to="/#appmini"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2"
+          >
+            <Smartphone className="w-5 h-5" />
+            App
+          </HashLink>
         </div>
 
         {/* BOOK NOW BUTTON */}
@@ -109,3 +113,5 @@ const MiniNavbar = () => {
 };
 
 export default MiniNavbar;
+
+

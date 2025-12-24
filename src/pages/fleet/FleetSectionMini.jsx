@@ -15,7 +15,7 @@
     ];
 
     return (
-        <section id="rides" className="w-full flex justify-center px-4 sm:px-6 py-18 sm:py-20 lg:hidden scroll-mt-[50px]">
+        <section id="ridesmini" className="w-full flex justify-center px-4 sm:px-6 py-18 sm:py-20 sm:hidden scroll-mt-[50px]">
         <div className="w-full flex flex-col items-center gap-3">
             {/* RIGHT SIDE CONTENT ON TOP */}
             <div className="flex flex-col items-center text-center w-full">

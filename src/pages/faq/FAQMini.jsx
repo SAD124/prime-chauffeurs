@@ -81,8 +81,8 @@ const FAQMini = () => {
   };
 
   return (
-    <section id="about" className="block lg:hidden w-full bg-[#1E1E1E] border-t border-[#D4C5A0] py-14 px-4 scroll-mt-[50px]">
-      <div className="max-w-[900px] mx-auto flex flex-col gap-7 sm:gap-10">
+    <section className="w-full max-w-full overflow-x-hidden block sm:hidden bg-[#1E1E1E] border-t border-[#D4C5A0] py-14 px-3">
+      <div className=" mx-auto flex flex-col gap-7 sm:gap-10 w-full max-w-[900px]">
 
         {/* Heading */}
         <h2 className="text-center text-[#D4C5A0] 
@@ -91,29 +91,33 @@ const FAQMini = () => {
         </h2>
 
         {/* Tabs */}
-        <div className="w-full max-w-[460px] sm:max-w-[620px] mx-auto">
-          <div className="flex flex-wrap justify-center gap-2">
+        <div className="w-full sm:max-w-[620px] mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 overflow-hidden">
             {tabs.map((tab) => {
               const isActive = activeTab === tab;
 
               return (
                 <button
-                  key={tab}
-                  onClick={() => {
-                    setActiveTab(tab);
-                    setOpenIndex(null);
-                  }}
-                  className={`rounded-full px-3 sm:px-7 py-1 sm:py-2 text-[11px] sm:text-[12px]
-                    transition-all duration-300 transform
-                    ${
-                      isActive
-                        ? "bg-[#D4C5A0] text-[#1E1E1E] scale-105"
-                        : "border border-[#FFFFFF4D] text-gray-300 hover:bg-[#3c4a56] hover:text-white hover:scale-105"
-                    }
-                  `}
-                >
-                  {tab}
-                </button>
+  key={tab}
+  onClick={() => {
+    setActiveTab(tab);
+    setOpenIndex(null);
+  }}
+  className={`rounded-full
+    max-w-full truncate
+    px-3 sm:px-7 py-1 sm:py-2
+    text-[11px] sm:text-[12px]
+    transition-all duration-300
+    ${
+      isActive
+        ? "bg-[#D4C5A0] text-[#1E1E1E] sm:scale-105"
+        : "border border-[#FFFFFF4D] text-gray-300 hover:bg-[#3c4a56] hover:text-white sm:hover:scale-105"
+    }
+  `}
+>
+  {tab}
+</button>
+
               );
             })}
           </div>

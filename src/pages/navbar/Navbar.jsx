@@ -6,6 +6,7 @@ import { HashLink } from "react-router-hash-link";
 const Navbar = () => {
   return (
     <>
+    <MiniNavbar />
       <nav className="hidden md:block w-full bg-white border-b border-gray-300 fixed top-0 z-50">
         <div
           className="max-w-screen-2xl mx-auto h-[82px] flex items-center px-6 lg:px-16 xl:px-36
@@ -13,10 +14,13 @@ const Navbar = () => {
         >
           {/* LOGO */}
           <div className="flex items-center">
-            <HashLink smooth to="/#main">
-  <img src="/Images/logo.webp" alt="Logo" className="w-auto h-[70px] object-contain cursor-pointer" />
-</HashLink>
-
+            <HashLink to="/#hero">
+              <img
+                src="/Images/logo.webp"
+                alt="Logo"
+                className="w-auto h-[70px] object-contain cursor-pointer"
+              />
+            </HashLink>
           </div>
 
           {/* RIGHT SIDE */}
@@ -80,7 +84,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <MiniNavbar />
     </>
   );
 };

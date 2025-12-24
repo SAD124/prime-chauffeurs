@@ -3,7 +3,7 @@ import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 const DownloadAppMini = () => {
   return (
-    <section id="app"
+    <section id="appmini"
       className="w-full bg-[#1E1E1E] border-t border-[#D4C5A0] 
       py-12 sm:py-16 lg:hidden scroll-mt-[50px]"
     >

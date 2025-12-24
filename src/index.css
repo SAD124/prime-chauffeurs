@@ -15,3 +15,11 @@
 .hide-scrollbar {
   scrollbar-width: none;
 }
+
+body {
+  /* outline: 12px solid red; */
+}
+
+html, body {
+  overflow-x: hidden;
+}
