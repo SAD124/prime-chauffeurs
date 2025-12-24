@@ -3,9 +3,9 @@ import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 const DownloadAppMini = () => {
   return (
-    <section
+    <section id="app"
       className="w-full bg-[#1E1E1E] border-t border-[#D4C5A0] 
-      py-12 sm:py-16 lg:hidden"
+      py-12 sm:py-16 lg:hidden scroll-mt-[50px]"
     >
       <div className="w-full max-w-[720px] mx-auto px-4 flex flex-col gap-15">
 

@@ -81,7 +81,7 @@ const FAQMini = () => {
   };
 
   return (
-    <section className="block lg:hidden w-full bg-[#1E1E1E] border-t border-[#D4C5A0] py-14 px-4">
+    <section id="about" className="block lg:hidden w-full bg-[#1E1E1E] border-t border-[#D4C5A0] py-14 px-4 scroll-mt-[50px]">
       <div className="max-w-[900px] mx-auto flex flex-col gap-7 sm:gap-10">
 
         {/* Heading */}

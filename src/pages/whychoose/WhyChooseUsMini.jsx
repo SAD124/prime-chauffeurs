@@ -18,7 +18,7 @@ const benefits = [
 
 const WhyChooseUsMini = () => {
   return (
-    <section className="w-full bg-[#1E1E1E] py-15 sm:py-20 flex justify-center lg:hidden">
+    <section id="services" className="w-full bg-[#1E1E1E] py-15 sm:py-20 flex justify-center lg:hidden scroll-mt-[50px]">
       {/* Container */}
       <div className="w-full max-w-[1200px] px-4 flex flex-col items-center gap-6 sm:gap-14">
 
