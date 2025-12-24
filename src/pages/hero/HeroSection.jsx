@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import HeroMini from "./HeroMini";
 
 const HeroSection = () => {
@@ -35,17 +35,20 @@ const HeroSection = () => {
         </p>
 
         <div className="flex gap-4 mt-4 flex-wrap">
-          <button
-            className="bg-[#D4C5A0] px-8 py-3 text-white font-roboto font-normal rounded-md"
-          >
-            Book now
-          </button>
-          <button
-            className="border border-[#D4C5A0] px-8 py-3 text-white font-roboto font-normal"
-          >
-            Get Discount
-          </button>
-        </div>
+  <Link
+    to="/book" // replace with your booking page route
+    className="bg-[#D4C5A0] px-8 py-3 text-white font-roboto font-normal rounded-md flex justify-center items-center"
+  >
+    Book now
+  </Link>
+
+  <Link
+    to="/book" // replace with your discount page route
+    className="border border-[#D4C5A0] px-8 py-3 text-white font-roboto font-normal flex justify-center items-center rounded-md"
+  >
+    Get Discount
+  </Link>
+</div>
       </div>
     </section>
 

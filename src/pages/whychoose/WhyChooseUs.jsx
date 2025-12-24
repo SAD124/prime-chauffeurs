@@ -22,7 +22,7 @@ const WhyChooseUs = () => {
   return (
     <>
       <WhyChooseUsMini/>
-      <section className="w-full bg-[#1E1E1E] py-20 justify-center hidden lg:flex">
+      <section id="services" className="w-full bg-[#1E1E1E] py-20 justify-center hidden lg:flex scroll-mt-[50px]">
       {/* Main container */}
       <div className="w-full max-w-[1200px] flex flex-col items-center gap-20">
 

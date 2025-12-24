@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+
+import { Link } from "react-router-dom";
 import { IoChevronForward } from "react-icons/io5";
 import RidesTypeMini from "./RidesTypeMini";
 
 const RidesType = () => {
-  const [active, setActive] = useState("airport");
 
   const tabs = [
     { id: "airport", label: "Airport rides", width: "w-[88px]" },
@@ -28,41 +28,50 @@ const RidesType = () => {
           Our drivers are trained professionals, courteous and well versed in all your travelling needs. Quick, efficient, and reliableservice for your comfort
         </p>
 
-        {/* Links */}
-        <div className="flex gap-8 justify-center items-center">
-          {/* Secondary Button */}
-          <button className="rounded-md border border-[#D4C5A0] text-white px-3 py-2 w-[152px] font-roboto font-normal">
-            Hire our rider
-          </button>
+{/* Links */}
+<div className="flex gap-8 justify-center items-center">
+  {/* Secondary Button */}
+  <Link
+    to="/book"
+    className="rounded-md border border-[#D4C5A0] text-white px-3 py-2 w-[152px] font-roboto font-normal flex justify-center items-center
+               hover:bg-white hover:text-black transition-colors duration-300"
+  >
+    Hire our rider
+  </Link>
 
-          {/* Link Button */}
-          <button className="flex items-center gap-2 font-roboto font-normal text-[15px]">
-            <span className="text-white">Learn more</span>
-            <IoChevronForward size={20} className="text-[#D4C5A0]" />
-          </button>
+  {/* Link Button */}
+<button className="flex items-center justify-center gap-2 font-roboto font-normal group">
+  <span className="text-white transition-transform transform hover:scale-110 block duration-300 group-hover:text-[#D4C5A0] group-active:text-[#D4C5A0]">
+    Learn more
+  </span>
+  <IoChevronForward
+    size={16}
+    className="text-white transition-colors duration-300 group-hover:text-[#D4C5A0] group-active:text-[#D4C5A0]"
+  />
 
-        </div>
+</button>
+</div>
+
+
       </div>
 
       {/* Second Main Div - Options */}
-      <div className="flex gap-8 w-[400px] mx-auto mt-14">
-        {tabs.map((tab) => (
-          <div
-            key={tab.id}
-            onClick={() => setActive(tab.id)}
-            className={`
-            pb-2 cursor-pointer 
-            ${active === tab.id ? "border-b border-[#D4C5A0]" : "border-b border-transparent"}
-          `}
-          >
-            <p
-              className={`text-white font-roboto font-normal text-[16px] leading-[150%] text-center ${tab.width}`}
-            >
-              {tab.label}
-            </p>
-          </div>
-        ))}
-      </div>
+<div className="flex gap-8 w-[400px] mx-auto mt-14">
+  {tabs.map((tab) => (
+    <div
+      key={tab.id}
+      className="text-white pb-2 transform transition-all duration-300 hover:text-[#D4C5A0] hover:scale-110 cursor-pointer"
+    >
+      <p
+        className={` font-roboto font-normal text-[16px] leading-[150%] text-center ${tab.width}`}
+      >
+        {tab.label}
+      </p>
+    </div>
+  ))}
+</div>
+
+
 
     </section>
     </>

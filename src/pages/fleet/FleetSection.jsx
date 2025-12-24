@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Luggage, Users, X } from "lucide-react";
 import FleetSectionMini from "./FleetSectionMini";
 
@@ -5,7 +6,7 @@ const FleetSection = () => {
   return (
     <>
       <FleetSectionMini/>
-      <section className="w-full lg:flex justify-center hidden md:block py-18">
+      <section id="rides" className="w-full lg:flex justify-center hidden md:block py-18 scroll-mt-[50px]">
       <div className="w-full lg:rounded-2xl lg:flex sm:flex-row justify-center items-center gap-5">
         {/* LEFT IMAGE */}
         <div className="w-[600px] h-[600px] rounded-[40px] overflow-hidden">
@@ -131,10 +132,15 @@ const FleetSection = () => {
             ))}
           </div>
 
-          {/* BOOK NOW BUTTON */}
-          <button className="w-[174px] h-[46px] mt-10 bg-[#d2b76b] text-white font-roboto text-[16px] px-10 py-3 rounded-md">
-            Book Now
-          </button>
+{/* BOOK NOW BUTTON */}
+<Link
+  to="/book"
+  className="w-[174px] h-[46px] mt-10 bg-[#d2b76b] text-white font-roboto text-[16px] px-10 py-3 rounded-md
+             flex items-center justify-center"
+>
+  Book Now
+</Link>
+
         </div>
       </div>
     </section>

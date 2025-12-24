@@ -2,20 +2,79 @@ import React, { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 
 const FAQMini = () => {
+  const tabs = ["General", "Payment", "Booking", "Airport Transfers", "City Tour"];
+
   const faqData = [
     {
+      category: "General",
       question: "What type of car do you use?",
       answer:
         "We use a variety of modern cars including sedans and SUVs to ensure comfort and safety.",
     },
     {
+      category: "General",
       question: "Can I book a ride for someone else?",
       answer:
         "Yes! You can book rides for family, friends, or colleagues by entering their details.",
     },
+    {
+      category: "Payment",
+      question: "What payment methods are accepted?",
+      answer:
+        "We accept credit cards, debit cards, and secure online payments.",
+    },
+    {
+      category: "Booking",
+      question: "How do I book a ride?",
+      answer:
+        "You can book directly from our website or through our mobile application.",
+    },
+    {
+    category: "Airport Transfers",
+    question: "Do you track flight delays?",
+    answer:
+      "Yes, we monitor flight schedules in real time and adjust pickup times automatically.",
+  },
+  {
+    category: "Airport Transfers",
+    question: "Will the driver wait if my flight is late?",
+    answer:
+      "Absolutely. Complimentary waiting time is included for delayed flights.",
+  },
+  {
+    category: "Airport Transfers",
+    question: "Where will the driver meet me at the airport?",
+    answer:
+      "The driver will meet you at the arrival terminal with a name sign for easy identification.",
+  },
+
+  // CITY TOUR
+  {
+    category: "City Tour",
+    question: "Do you offer guided city tours?",
+    answer:
+      "Yes, we offer customizable guided city tours with experienced local drivers.",
+  },
+  {
+    category: "City Tour",
+    question: "How long are city tours?",
+    answer:
+      "City tours can range from a few hours to a full-day experience depending on your preference.",
+  },
+  {
+    category: "City Tour",
+    question: "Can I customize my city tour route?",
+    answer:
+      "Yes, routes and stops can be fully customized based on your interests.",
+  },
   ];
 
+  const [activeTab, setActiveTab] = useState("General");
   const [openIndex, setOpenIndex] = useState(null);
+
+  const filteredFAQs = faqData.filter(
+    (item) => item.category === activeTab
+  );
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -33,30 +92,36 @@ const FAQMini = () => {
 
         {/* Tabs */}
         <div className="w-full max-w-[460px] sm:max-w-[620px] mx-auto">
-        <div className="flex flex-wrap justify-center gap-2">
-          {["General", "Payment", "Booking", "Airport Transfers", "City Tour"].map(
-            (tab, idx) => (
-              <div
-                key={idx}
-                className={`rounded-full px-3 sm:px-7 py-1 sm:py-2 flex justify-center items-center
-                  ${
-                    idx === 0
-                      ? "bg-[#D4C5A0] text-[#1E1E1E]"
-                      : "border border-[#FFFFFF4D] text-gray-300"
-                  }`}
-              >
-                <span className="text-[11px] sm:text-[12px]">
+          <div className="flex flex-wrap justify-center gap-2">
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab;
+
+              return (
+                <button
+                  key={tab}
+                  onClick={() => {
+                    setActiveTab(tab);
+                    setOpenIndex(null);
+                  }}
+                  className={`rounded-full px-3 sm:px-7 py-1 sm:py-2 text-[11px] sm:text-[12px]
+                    transition-all duration-300 transform
+                    ${
+                      isActive
+                        ? "bg-[#D4C5A0] text-[#1E1E1E] scale-105"
+                        : "border border-[#FFFFFF4D] text-gray-300 hover:bg-[#3c4a56] hover:text-white hover:scale-105"
+                    }
+                  `}
+                >
                   {tab}
-                </span>
-              </div>
-            )
-          )}
-        </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Questions */}
         <div className="w-full max-w-[460px] sm:max-w-[700px] mx-auto flex flex-col">
-          {faqData.map((item, idx) => (
+          {filteredFAQs.map((item, idx) => (
             <div key={idx} className="flex flex-col">
 
               <button
@@ -75,7 +140,7 @@ const FAQMini = () => {
               </button>
 
               {openIndex === idx && (
-                <p className="text-gray-400 text-[13px] sm:text-[14px] pb-4">
+                <p className="text-gray-400 text-[13px] sm:text-[14px] pb-4 px-3">
                   {item.answer}
                 </p>
               )}

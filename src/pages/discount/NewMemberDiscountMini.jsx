@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NewMemberDiscountMini = () => {
   return (
     <section className="relative w-full overflow-hidden py-16 sm:py-30 border-t border-[#D4C5A0] md:hidden">
@@ -29,15 +31,23 @@ const NewMemberDiscountMini = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
-          <button className="bg-[#D4C5A0] rounded-md text-white font-roboto text-[14px] sm:text-[15px] py-2 sm:py-4 w-full sm:w-auto px-7">
-            Book now
-          </button>
+<div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
+  {/* Book now Link */}
+  <Link
+    to="/book"
+    className="bg-[#D4C5A0] rounded-md text-white font-roboto text-[14px] sm:text-[15px] py-2 sm:py-4 w-full sm:w-auto px-7 flex justify-center items-center"
+  >
+    Book now
+  </Link>
 
-          <button className="rounded-md border border-white text-white font-roboto text-[14px] sm:text-[15px] py-2 sm:py-4 w-full sm:w-auto px-7">
-            Get Discount
-          </button>
-        </div>
+  {/* Get Discount Link */}
+  <Link
+    to="/book"
+    className="rounded-md border border-white text-white font-roboto text-[14px] sm:text-[15px] py-2 sm:py-4 w-full sm:w-auto px-7 flex justify-center items-center"
+  >
+    Get Discount
+  </Link>
+</div>
 
       </div>
     </section>

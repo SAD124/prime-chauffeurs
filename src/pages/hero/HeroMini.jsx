@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 const HeroMini = () => {
   return (
     <section className="relative w-full min-h-[500px] sm:min-h-[550px] md:min-h-[600px] overflow-hidden md:hidden">
@@ -38,14 +38,20 @@ const HeroMini = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 w-full">
-          <button className="bg-[#D4C5A0] px-8 py-2 sm:py-4 text-white font-roboto font-normal rounded-md w-full sm:w-auto">
-            Book now
-          </button>
-          <button className="border-2 border-[#D4C5A0] px-8 py-2 sm:py-3 text-white font-roboto font-normal rounded-md w-full sm:w-auto">
-            Get Discount
-          </button>
-        </div>
+<div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 w-full">
+  <Link
+    to="/book" // replace with your booking page route
+    className="bg-[#D4C5A0] px-8 py-2 sm:py-4 text-white font-roboto font-normal rounded-md w-full sm:w-auto flex justify-center items-center"
+  >
+    Book now
+  </Link>
+  <Link
+    to="/book" // replace with your discount page route
+    className="border-2 border-[#D4C5A0] px-8 py-2 sm:py-3 text-white font-roboto font-normal rounded-md w-full sm:w-auto flex justify-center items-center"
+  >
+    Get Discount
+  </Link>
+</div>
       </div>
     </section>
   );

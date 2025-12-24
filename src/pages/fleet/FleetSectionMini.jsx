@@ -1,4 +1,5 @@
     import { Luggage, Users } from "lucide-react";
+    import { Link } from "react-router-dom";
 
     const FleetSectionMini = () => {
     const cars = [
@@ -54,9 +55,9 @@
 
 
             {/* BOOK NOW BUTTON */}
-            <button className="py-2 sm:py-3 px-9 sm:px-12 mt-6 bg-[#d2b76b] text-white font-roboto text-[15px] rounded-md">
+            <Link to="/book" className="py-2 sm:py-3 px-9 sm:px-12 mt-6 bg-[#d2b76b] text-white font-roboto text-[15px] rounded-md">
                 Book Now
-            </button>
+            </Link>
             </div>
 
             {/* LEFT IMAGE BELOW */}

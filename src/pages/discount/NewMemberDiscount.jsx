@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NewMemberDiscountMini from "./NewMemberDiscountMini";
 
 const NewMemberDiscount = () => {
@@ -32,26 +33,31 @@ const NewMemberDiscount = () => {
           Prime Chauffeur delivers premium transportation services with professional drivers and luxury vehicles. Experience comfort, reliability and elegance for airport transfers, corporate travel, and special events.
         </p>
 
-        {/* Buttons */}
-        <div className="flex gap-5 mt-2">
-          {/* Button 1 */}
-          <button
-            className=" bg-[#D4C5A0] rounded-md
-                       text-white font-roboto font-normal text-[15px]
-                       px-8 py-3"
-          >
-            Book now
-          </button>
+        
 
-          {/* Button 2 */}
-          <button
-            className="rounded-md border border-white
-                       text-white font-roboto font-normal text-[15px]
-                       px-8 py-3"
-          >
-            Get Discount
-          </button>
-        </div>
+{/* Buttons */}
+<div className="flex gap-5 mt-2">
+  {/* Button 1 */}
+  <Link
+    to="/book" 
+    className="bg-[#D4C5A0] rounded-md
+               text-white font-roboto font-normal text-[15px]
+               px-8 py-3 flex justify-center items-center"
+  >
+    Book now
+  </Link>
+
+  {/* Button 2 */}
+  <Link
+    to="/book" 
+    className="rounded-md border border-white
+               text-white font-roboto font-normal text-[15px]
+               px-8 py-3 flex justify-center items-center"
+  >
+    Get Discount
+  </Link>
+</div>
+
 
       </div>
     </section>

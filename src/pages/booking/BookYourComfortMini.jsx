@@ -21,7 +21,7 @@ const BookYourComfortMini = () => {
           </h2>
 
           {/* Paragraph */}
-          <p className="font-roboto text-gray-400 text-[14px] sm:text-[16px] leading-[150%] w-[542px] h-[54px] px-6">
+          <p className="font-roboto text-gray-400 text-[14px] sm:text-[16px] leading-[150%] w-[400px]  px-6">
             Book your premium ride now and discover transportation that truly
             understands your needs.
           </p>
