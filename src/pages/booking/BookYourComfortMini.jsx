@@ -6,7 +6,7 @@ import MapSection from "./MapSection";
 
 const BookYourComfortMini = () => {
   return (
-      <section className="w-full bg-[#1E1E1E] py-10 sm:py-15 px-3 md:hidden flex justify-center border border-t-[#D4C5A0]">
+      <section id="booking-section" className="w-full bg-[#1E1E1E] py-10 sm:py-15 px-3 md:hidden flex justify-center border border-t-[#D4C5A0] scroll-mt-[50px]">
       {/* INNER MAIN DIV */}
       <div className="w-full max-w-[850px] flex flex-col items-center gap-8 ">
 

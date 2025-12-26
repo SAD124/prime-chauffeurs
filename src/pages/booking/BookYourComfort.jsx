@@ -12,7 +12,7 @@ const BookYourComfort = () => {
   return (
     <>
       <BookYourComfortMini />
-      <section className="w-full bg-[#1E1E1E] py-15 lg:flex justify-center border border-t-[#D4C5A0] hidden md:block">
+      <section id="booking-section" className="w-full bg-[#1E1E1E] py-15 lg:flex justify-center border border-t-[#D4C5A0] hidden md:block scroll-mt-[50px]">
         <div className="w-full max-w-[850px] flex flex-col items-center gap-12">
           <div className="w-full max-w-[572px] flex flex-col items-center gap-6 text-center ">
             <h2 className="font-roboto font-bold text-[40px] leading-[120%] text-white">

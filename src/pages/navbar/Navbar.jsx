@@ -19,7 +19,7 @@ const Navbar = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex items-center"
           >
-            <HashLink to="/#hero">
+            <HashLink smooth to="/#hero">
               <img
                 src="/Images/logo.webp"
                 alt="Logo"

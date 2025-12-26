@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 const DiscountHeader = () => {
   return (
     <div
-      id="main"
-      className="w-full bg-[#D4C5A0] py-5 flex items-center justify-center relative z-40"
+      id="hero"
+      className="w-full bg-[#D4C5A0] py-5 flex items-center justify-center relative z-40 scroll-mt-[100px]"
     >
       <div className="max-w-[1440px] w-full mx-auto flex items-center justify-center">
         <motion.p

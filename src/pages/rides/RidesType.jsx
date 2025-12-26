@@ -31,7 +31,8 @@ const RidesType = () => {
         {/* Heading + Description */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center gap-6 max-w-[1032px] w-full justify-center text-center m-auto"
         >
@@ -46,7 +47,8 @@ const RidesType = () => {
           {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
             className="flex gap-8 justify-center items-center mt-4"
           >
@@ -70,14 +72,15 @@ const RidesType = () => {
           </motion.div>
         </motion.div>
 
-        {/* Ride Options (staggered) */}
+        {/* Ride Options (staggered on scroll) */}
         <div className="flex gap-8 w-[400px] mx-auto mt-14">
           {tabs.map((tab, index) => (
             <motion.div
               key={tab.id}
               custom={index}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
               variants={tabVariants}
               className="text-white pb-2 transform transition-all duration-300 hover:text-[#D4C5A0] hover:scale-110 cursor-pointer"
             >

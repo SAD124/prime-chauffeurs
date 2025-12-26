@@ -5,7 +5,7 @@ const NewMemberDiscount = () => {
   return (
     <>
       <NewMemberDiscountMini/>
-      <section className="relative w-full overflow-hidden py-25 border border-t-[#D4C5A0] hidden md:block">
+      <section id="discount-section" className="relative w-full overflow-hidden py-25 border border-t-[#D4C5A0] hidden md:block scroll-mt-[50px]">
 
       {/* Background Image */}
       <div

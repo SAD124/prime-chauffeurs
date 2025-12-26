@@ -36,9 +36,14 @@ const MiniNavbar = () => {
         </button>
 
         {/* CENTER LOGO */}
-        <Link to="/">
-          <img src="/Images/logo.webp" alt="Logo" className="h-[60px] object-contain" />
-        </Link>
+<HashLink smooth to="/#hero" onClick={() => setOpen(false)}>
+  <img
+    src="/Images/logo.webp"
+    alt="Logo"
+    className="h-[60px] object-contain cursor-pointer"
+  />
+</HashLink>
+
 
         {/* CONTACT BUTTON */}
         <Link

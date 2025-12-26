@@ -26,7 +26,8 @@ const RidesTypeMini = () => {
       {/* Heading + paragraph */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="flex flex-col items-center gap-4 text-center max-w-[700px]"
       >
@@ -43,7 +44,8 @@ const RidesTypeMini = () => {
       {/* Buttons: Hire + Learn more */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
         className="flex flex-col sm:flex-row gap-6 items-stretch sm:items-center sm:justify-center w-full"
       >
@@ -66,14 +68,15 @@ const RidesTypeMini = () => {
         </button>
       </motion.div>
 
-      {/* Ride option buttons (staggered) */}
+      {/* Ride option buttons (staggered on scroll) */}
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-8 items-center">
         {tabs.map((tab, index) => (
           <motion.button
             key={tab.id}
             custom={index}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             variants={tabVariants}
             className="font-roboto text-[15px] sm:text-[16px] text-white transition-all duration-300 transform hover:scale-110 hover:text-[#D4C5A0]"
           >

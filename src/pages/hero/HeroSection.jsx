@@ -1,21 +1,61 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { HashLink } from "react-router-hash-link";
 import HeroMini from "./HeroMini";
 
+/* ================= VARIANTS ================= */
+
+const heroVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+    scale: 1.08,
+    transition: { duration: 0.6, ease: "easeInOut" },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+};
+
+const buttonVariants = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.2, duration: 0.6, ease: "easeOut" },
+  },
+};
+
+/* ================= COMPONENT ================= */
+
 const HeroSection = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.3,
+  });
+
   return (
     <>
       {/* Mobile Hero */}
       <HeroMini />
 
       {/* Desktop Hero */}
-      <section className="relative w-full h-[700px] overflow-hidden hidden md:block">
-
+      <section
+        id="hero"
+        ref={ref}
+        className="relative w-full h-[700px] overflow-hidden hidden md:block scroll-mt-[82px]"
+      >
         {/* Background Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          variants={heroVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
           className="absolute inset-0 w-full h-full"
         >
           <img
@@ -26,13 +66,21 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black opacity-40" />
+        <motion.div
+          animate={{
+            backgroundColor: inView
+              ? "rgba(0,0,0,0.4)"
+              : "rgba(0,0,0,1)",
+          }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="absolute inset-0"
+        />
 
         {/* Left Content */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+          variants={heroVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
           className="absolute top-[200px] left-[93px] flex flex-col gap-2 max-w-[650px]"
         >
           <h1>
@@ -55,24 +103,26 @@ const HeroSection = () => {
 
           {/* Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
+            variants={buttonVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
             className="flex gap-4 mt-4 flex-wrap"
           >
-            <Link
-              to="/book"
+            <HashLink
+              smooth
+              to="/#booking-section"
               className="bg-[#D4C5A0] px-8 py-3 text-white rounded-md flex justify-center items-center"
             >
               Book now
-            </Link>
+            </HashLink>
 
-            <Link
-              to="/book"
+            <HashLink
+              smooth
+              to="/#discount-section"
               className="border border-[#D4C5A0] px-8 py-3 text-white rounded-md flex justify-center items-center"
             >
               Get Discount
-            </Link>
+            </HashLink>
           </motion.div>
         </motion.div>
       </section>

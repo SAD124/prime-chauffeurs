@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NewMemberDiscountMini = () => {
   return (
-    <section className="relative w-full overflow-hidden py-16 sm:py-30 border-t border-[#D4C5A0] md:hidden">
+    <section id="discount-section" className="relative w-full overflow-hidden py-16 sm:py-30 border-t border-[#D4C5A0] md:hidden scroll-mt-[50px]">
 
       {/* Background Image */}
       <div
