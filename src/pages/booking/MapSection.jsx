@@ -1,4 +1,4 @@
-import React, { useState, } from "react";
+import { useState, } from "react";
 import MapSectionMini from "./MapSectionMini";
 
 const MapSection = () => {
@@ -25,11 +25,11 @@ const MapSection = () => {
     <>
       <MapSectionMini/>
       <div
-      className={`hidden md:block rounded-t-3xl relative w-full max-w-[1046px] mx-auto rounded-6 overflow-hidden shadow-[0px_10px_25px_rgba(30,41,57,0.5)]
+      className={`hidden md:block rounded-t-3xl relative w-full max-w-6xl mx-auto rounded-6 overflow-hidden shadow-[0px_10px_25px_rgba(30,41,57,0.5)]
  ${
         isFullScreen
           ? "fixed top-0 left-0 w-screen h-screen z-50"
-          : "h-[365px]"
+          : "h-98"
       }`}
     >
       {/* MAP / SATELLITE IMAGE */}
@@ -48,7 +48,7 @@ const MapSection = () => {
         {/* Map Button */}
         <button
           onClick={() => handleMapTypeChange("map")}
-          className={`px-4 py-2 text-sm w-[70px] text-center ${
+          className={`px-4 py-2 text-sm w-16 text-center ${
             mapType === "map" ? "font-semibold" : "font-normal"
           }`}
         >
@@ -56,12 +56,12 @@ const MapSection = () => {
         </button>
 
         {/* Vertical separator */}
-        <div className="w-[3px] bg-gray-300 h-full"></div>
+        <div className="w-1 bg-gray-300 h-full"></div>
 
         {/* Satellite Button */}
         <button
           onClick={() => handleMapTypeChange("satellite")}
-          className={`px-4 py-2 text-sm w-[90px] text-center border-l border-gray-300 ${
+          className={`px-4 py-2 text-sm w-20 text-center border-l border-gray-300 ${
             mapType === "satellite" ? "font-semibold" : "font-normal"
           }`}
         >

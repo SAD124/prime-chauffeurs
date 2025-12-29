@@ -101,8 +101,8 @@ const FAQ = () => {
       <FAQMini />
 
       {/* DESKTOP FAQ */}
-      <section id="about" className="w-full bg-[#1E1E1E] border-t border-[#D4C5A0] py-20 hidden md:block scroll-mt-[50px]">
-        <div className="w-[1144px] mx-auto flex flex-col gap-12 px-4">
+      <section id="about" className="w-full bg-[#1E1E1E] border-t border-[#D4C5A0] py-20 hidden md:block scroll-mt-12">
+        <div className="max-w-7xl mx-auto flex flex-col gap-12 px-4">
 
           {/* Heading */}
           <h2 className="text-center text-[40px] font-normal text-[#D4C5A0]">
@@ -138,7 +138,7 @@ const FAQ = () => {
 
 
           {/* FAQ List */}
-          <div className="w-[812px] mx-auto flex flex-col">
+          <div className="w-4xl mx-auto flex flex-col">
             {filteredFAQs.map((item, idx) => (
               <div key={idx} className="flex flex-col">
 

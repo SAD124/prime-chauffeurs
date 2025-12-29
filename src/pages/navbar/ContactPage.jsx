@@ -1,38 +1,24 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Check } from "lucide-react";
+import React, { useEffect } from "react";
+import { Check } from "lucide-react";
 import ContactPageMini from "./ContactPageMini";
 
 export default function ContactPage() {
-  // Variants for staggered animation of children
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, ease: "easeInOut" },
-    },
-    exit: { opacity: 0, transition: { ease: "easeInOut" } },
-  };
-
-  const childVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
       <ContactPageMini />
 
-      <motion.section
-        className="min-h-screen bg-[#121212] text-white px-6 py-20 hidden md:block"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
+      <section
+        id="contact"
+        className="min-h-screen bg-[#121212] text-white px-6 py-20"
       >
-        <motion.div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          
           {/* LEFT CONTENT */}
-          <motion.div variants={childVariants}>
+          <div>
             <div className="space-y-7 mb-8">
               <p>Connect</p>
               <h1 className="text-5xl font-bold">Contact us</h1>
@@ -44,10 +30,10 @@ export default function ContactPage() {
               <span>+61 4 1233 5176</span>
               <span>Leppington NSW 2179</span>
             </div>
-          </motion.div>
+          </div>
 
           {/* FORM */}
-          <motion.form className="space-y-6" variants={childVariants}>
+          <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Input label="First name" required />
               <Input label="Last name" required />
@@ -81,7 +67,11 @@ export default function ContactPage() {
                   "Other",
                 ].map((item) => (
                   <label key={item} className="flex items-center gap-2">
-                    <input type="radio" name="userType" className="accent-[#D4AF37]" />
+                    <input
+                      type="radio"
+                      name="userType"
+                      className="accent-[#D4AF37]"
+                    />
                     {item}
                   </label>
                 ))}
@@ -101,7 +91,11 @@ export default function ContactPage() {
             </div>
 
             <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" required className="accent-[#D4AF37] focus:ring-2 focus:ring-red-500" />
+              <input
+                type="checkbox"
+                required
+                className="accent-[#D4AF37]"
+              />
               <span>
                 I accept the terms <span className="text-red-500">*</span>
               </span>
@@ -113,15 +107,19 @@ export default function ContactPage() {
                 <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                   <Check className="w-4 h-4 text-white" />
                 </div>
-                <span className="font-medium text-white text-lg">Success!</span>
+                <span className="font-medium text-white text-lg">
+                  Success!
+                </span>
               </div>
 
               <div className="flex flex-col">
-                <div className="w-30">
-                  <img src="/Images/cloud.png" alt="Cloudflare" className="w-30" />
-                </div>
-                <div className="flex justify-center text-xs text-gray-400 ">
-                  <a href="#" className="underline">Privacy.</a>
+                <img
+                  src="/Images/cloud.png"
+                  alt="Cloudflare"
+                  className="w-30"
+                />
+                <div className="flex justify-center text-xs text-gray-400 gap-2">
+                  <a href="#" className="underline">Privacy</a>
                   <a href="#" className="underline">Terms</a>
                 </div>
               </div>
@@ -133,9 +131,9 @@ export default function ContactPage() {
             >
               Send
             </button>
-          </motion.form>
-        </motion.div>
-      </motion.section>
+          </form>
+        </div>
+      </section>
     </>
   );
 }

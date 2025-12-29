@@ -7,12 +7,12 @@ const DownloadApp = () => {
     <>
       <DownloadAppMini />
 
-      <section id="app" className="w-full bg-[#1E1E1E] py-24 border border-t-[#D4C5A0] hidden md:block scroll-mt-[60px]">
+      <section id="app" className="w-full bg-[#1E1E1E] py-20 border border-t-[#D4C5A0] hidden md:block scroll-mt-16">
         {/* Main container */}
-        <div className="w-[1215px] h-[343px] mx-auto flex items-center justify-between">
+        <div className="max-w-6xl mx-auto flex items-center justify-between gap-20">
 
           {/* LEFT SIDE */}
-          <div className="flex flex-col gap-8 w-[515.6px]">
+          <div className="flex flex-col gap-12 w-[515.6px]">
 
             {/* ICON + HEADING */}
             <div className="flex items-center gap-4 w-[515.6px]">
@@ -34,7 +34,7 @@ const DownloadApp = () => {
             </div>
 
             {/* STORE BUTTONS */}
-            <div className="flex items-center gap-4 w-[500px]">
+            <div className="flex items-center gap-4">
 
               {/* Apple Store */}
               <button
@@ -72,16 +72,16 @@ const DownloadApp = () => {
             <img
               src="/Images/scan.webp"
               alt="QR Code"
-              className="w-[200px] h-[200px] object-contain
+              className="w-98 h-48 object-contain
               transition-transform duration-300
-              hover:rotate-[6deg] hover:scale-105"
+              hover:rotate-6 hover:scale-105"
             />
 
             {/* Mobile Image (Opposite Tilt) */}
             <img
               src="/Images/mobile.webp"
               alt="App Mobile Preview"
-              className="w-[319px] h-[343px] object-contain
+              className="w-98 h-84 object-contain
               transition-transform duration-300
               hover:rotate-[-5deg] hover:scale-105"
             />

@@ -18,9 +18,9 @@ const benefits = [
 
 const WhyChooseUsMini = () => {
   return (
-    <section id="servicesmini" className="w-full bg-[#1E1E1E] py-15 sm:py-20 flex justify-center lg:hidden scroll-mt-[50px]">
+    <section id="servicesmini" className="w-full bg-[#1E1E1E] py-15 sm:py-20 flex justify-center lg:hidden scroll-mt-12">
       {/* Container */}
-      <div className="w-full max-w-[1200px] px-4 flex flex-col items-center gap-6 sm:gap-14">
+      <div className="w-full max-w-6xl px-4 flex flex-col items-center gap-6 sm:gap-14">
 
         {/* TOP CONTENT */}
         <div className="flex flex-col items-center text-center gap-4">
@@ -37,7 +37,7 @@ const WhyChooseUsMini = () => {
             for your rides
           </h2>
 
-          <p className="text-gray-300 text-[14px] sm:text-[15px] leading-[150%] max-w-[600px] mt-2 sm:mt-5">
+          <p className="text-gray-300 text-[14px] sm:text-[15px] leading-[150%] max-w-2xl mt-2 sm:mt-5">
             Discover the advantages of premium transportation that goes beyond
             simple point A to point B travel.
           </p>
@@ -51,7 +51,7 @@ const WhyChooseUsMini = () => {
               key={index}
               className="
                 flex flex-col items-center text-center gap-4
-                px-6 py-8 rounded-xl
+                px-6 py-6 rounded-xl
                 transition-all duration-300
                 hover:bg-[#2A2A2A]
               "
@@ -59,7 +59,7 @@ const WhyChooseUsMini = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-[60px] h-[60px] object-contain"
+                className="w-16 h-16 object-contain"
               />
 
               <h3 className="text-white font-roboto font-bold text-[17px]">

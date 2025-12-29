@@ -5,12 +5,12 @@ const DownloadAppMini = () => {
   return (
     <section id="appmini"
       className="w-full bg-[#1E1E1E] border-t border-[#D4C5A0] 
-      py-12 sm:py-16 lg:hidden scroll-mt-[50px]"
+      py-12 sm:py-16 lg:hidden scroll-mt-12"
     >
-      <div className="w-full max-w-[720px] mx-auto px-4 flex flex-col gap-15">
+      <div className="w-full max-w-7xl mx-auto px-4 flex flex-col gap-15">
 
         {/* TOP LEFT CONTENT */}
-        <div className="flex flex-col gap-10 items-start">
+        <div className="flex flex-col gap-8 sm:gap-10 items-start">
 
           {/* ICON + HEADING */}
           <div className="flex items-center gap-3">
@@ -25,14 +25,14 @@ const DownloadAppMini = () => {
 
             <h2
               className="text-[#D4C5A0] font-bold 
-              text-[28px] sm:text-[34px] leading-tight"
+              text-[30px] sm:text-[34px] leading-tight"
             >
               Download the app
             </h2>
           </div>
 
           {/* BUTTONS */}
-          <div className="flex flex-col sm:flex-row gap-4 w-[400px] mx-auto sm:mx-0">
+          <div className="flex flex-col sm:flex-row gap-4 w-full mx-auto sm:mx-0">
 
             {/* Apple */}
             <button
@@ -40,7 +40,7 @@ const DownloadAppMini = () => {
               rounded-full border border-white 
               px-4 py-3 w-full sm:w-auto
               transition-transform duration-300
-              hover:scale-110"
+              hover:scale-105"
             >
               <FaApple className="text-[#D4C5A0] w-5 h-5" />
               <span className="text-white text-[14px] sm:text-[15px]">
@@ -54,7 +54,7 @@ const DownloadAppMini = () => {
               rounded-full border border-white 
               px-4 py-3 w-full sm:w-auto
               transition-transform duration-300
-              hover:scale-110"
+              hover:scale-105"
             >
               <FaGooglePlay className="text-[#D4C5A0] w-5 h-5" />
               <span className="text-white text-[14px] sm:text-[15px]">
@@ -69,9 +69,9 @@ const DownloadAppMini = () => {
           <img
             src="/Images/scan.webp"
             alt="QR Code"
-            className="w-[170px] sm:w-[200px] object-contain
+            className="w-44 sm:w-54 object-contain
             transition-transform duration-300
-            hover:rotate-[6deg] hover:scale-105"
+            hover:rotate-4 hover:scale-105"
           />
         </div>
 

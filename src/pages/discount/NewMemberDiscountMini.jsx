@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NewMemberDiscountMini = () => {
   return (
-    <section id="discount-section" className="relative w-full overflow-hidden py-16 sm:py-30 border-t border-[#D4C5A0] md:hidden scroll-mt-[50px]">
+    <section id="discount-section" className="relative w-full overflow-hidden py-16 sm:py-30 border-t border-[#D4C5A0] md:hidden scroll-mt-12">
 
       {/* Background Image */}
       <div
@@ -18,7 +18,7 @@ const NewMemberDiscountMini = () => {
       <div className="absolute inset-0 bg-black opacity-40" />
 
       {/* Content */}
-      <div className="relative max-w-[700px] mx-auto flex flex-col items-center text-center gap-8 px-4">
+      <div className="relative max-w-5xl mx-auto flex flex-col items-center text-center gap-8 px-4">
 
         {/* Heading */}
         <h2 className="text-white font-roboto font-bold text-[26px] sm:text-[30px] leading-[120%]">

@@ -81,8 +81,8 @@ const FAQMini = () => {
   };
 
   return (
-    <section className="w-full max-w-full overflow-x-hidden block sm:hidden bg-[#1E1E1E] border-t border-[#D4C5A0] py-14 px-3">
-      <div className=" mx-auto flex flex-col gap-7 sm:gap-10 w-full max-w-[900px]">
+    <section className="w-full max-w-full overflow-x-hidden block sm:hidden bg-[#1E1E1E] border-t border-[#D4C5A0] py-10 sm:py-14 px-3">
+      <div className=" mx-auto flex flex-col gap-7 sm:gap-10 w-full ">
 
         {/* Heading */}
         <h2 className="text-center text-[#D4C5A0] 
@@ -91,7 +91,7 @@ const FAQMini = () => {
         </h2>
 
         {/* Tabs */}
-        <div className="w-full sm:max-w-[620px] mx-auto">
+        <div className="w-full mx-auto">
           <div className="flex flex-wrap justify-center gap-2 overflow-hidden">
             {tabs.map((tab) => {
               const isActive = activeTab === tab;
@@ -124,7 +124,7 @@ const FAQMini = () => {
         </div>
 
         {/* Questions */}
-        <div className="w-full max-w-[460px] sm:max-w-[700px] mx-auto flex flex-col">
+        <div className="w-full  mx-auto flex flex-col">
           {filteredFAQs.map((item, idx) => (
             <div key={idx} className="flex flex-col">
 
