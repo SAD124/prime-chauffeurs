@@ -9,11 +9,11 @@ import CustomTimePicker from "./CustomTimePicker";
 
 export default function BookingFormMini() {
   return (
-    <div className="w-full max-w-[1046px] mx-auto flex flex-col gap-3 md:hidden">
+    <div className="w-full max-w-4xl mx-auto flex flex-col gap-3 md:hidden">
 
       {/* Top Tabs */}
       <div className="flex flex-col gap-5">
-        <button className="w-full sm:w-[380px] h-10 rounded-md border border-gray-300 bg-gray-100 shadow-lg flex items-center justify-center text-[14px] sm:text-[16px] font-medium">
+        <button className="w-full  h-10 rounded-md border border-gray-300 bg-gray-100 shadow-lg flex items-center justify-center text-[14px] sm:text-[16px] font-medium">
           Book by Distance
         </button>
 

@@ -6,12 +6,12 @@ import MapSection from "./MapSection";
 
 const BookYourComfortMini = () => {
   return (
-      <section id="booking-section" className="w-full bg-[#1E1E1E] py-10 sm:py-15 px-3 md:hidden flex justify-center border border-t-[#D4C5A0] scroll-mt-[50px]">
+      <section id="booking-section" className="w-full bg-[#1E1E1E] py-10 sm:py-15 px-3 md:hidden flex justify-center border border-t-[#D4C5A0] scroll-mt-12">
       {/* INNER MAIN DIV */}
-      <div className="w-full max-w-[850px] flex flex-col items-center gap-8 ">
+      <div className="w-full max-w-5xl flex flex-col items-center gap-8 ">
 
         {/* HEADING + PARA */}
-        <div className="w-full max-w-[572px] flex flex-col items-center gap-6 text-center ">
+        <div className="w-full max-w-4xl flex flex-col items-center gap-6 text-center ">
           {/* Heading */}
           <h2 className="font-roboto font-bold text-[24px] sm:text-[40px] leading-[120%] text-white">
             Book Your{" "}
@@ -21,7 +21,7 @@ const BookYourComfortMini = () => {
           </h2>
 
           {/* Paragraph */}
-          <p className="font-roboto text-gray-400 text-[14px] sm:text-[16px] leading-[150%] w-[400px]  px-6">
+          <p className="font-roboto text-gray-400 text-[14px] sm:text-[16px] leading-[150%] px-6">
             Book your premium ride now and discover transportation that truly
             understands your needs.
           </p>

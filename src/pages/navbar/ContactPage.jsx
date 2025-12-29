@@ -13,7 +13,7 @@ export default function ContactPage() {
 
       <section
         id="contact"
-        className="min-h-screen bg-[#121212] text-white px-6 py-20"
+        className="bg-[#121212] text-white px-6 py-20"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           

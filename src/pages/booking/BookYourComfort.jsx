@@ -12,16 +12,16 @@ const BookYourComfort = () => {
   return (
     <>
       <BookYourComfortMini />
-      <section id="book" className="w-full bg-[#1E1E1E] py-15 lg:flex justify-center border border-t-[#D4C5A0] hidden md:block scroll-mt-[50px]">
-        <div className="w-full max-w-[850px] flex flex-col items-center gap-12">
-          <div className="w-full max-w-[572px] flex flex-col items-center gap-6 text-center ">
+      <section id="book" className="w-full bg-[#1E1E1E] py-15 lg:flex justify-center border border-t-[#D4C5A0] hidden md:block scroll-mt-12">
+        <div className="w-full max-w-4xl flex flex-col items-center gap-12">
+          <div className="w-full flex flex-col items-center gap-6 text-center ">
             <h2 className="font-roboto font-bold text-[40px] leading-[120%] text-white">
               Book Your{" "}
               <span className="font-['Rouge_Script'] text-[64px] font-normal leading-[120%] text-[#D4C5A0]">
                 Comfort
               </span>
             </h2>
-            <p className="font-roboto text-gray-400 text-[18px] leading-[150%] w-[542px] h-[54px]">
+            <p className="font-roboto text-gray-400 text-[18px] leading-[150%] max-w-xl">
               Book your premium ride now and discover transportation that truly
               understands your needs.
             </p>

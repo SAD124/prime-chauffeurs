@@ -14,13 +14,13 @@ export default function BookingForm() {
   return (
     <>
         <BookingFormMini/>
-      <div className="w-full max-w-[1046px] mx-auto lg:flex flex-col gap-5 hidden md:block">
+      <div className="w-full max-w-6xl mx-auto lg:flex flex-col gap-5 hidden md:block">
 
       {/* TOP TABS */}
 <div className="flex flex-col gap-5">
 
   {/* Row 1 — Book by Distance (single) */}
-  <button className="w-[380px] rounded-md h-10 border border-gray-300 bg-gray-100 shadow-lg flex items-center justify-center text-[16px] font-medium">
+  <button className="w-98 rounded-md h-10 border border-gray-300 bg-gray-100 shadow-lg flex items-center justify-center text-[16px] font-medium">
     Book by Distance
   </button>
 
@@ -38,7 +38,7 @@ export default function BookingForm() {
 
 
       {/* PICKUP LOCATION */}
-      <div className="flex items-center w-full h-[60px] bg-white rounded-md px-4 shadow-md border border-gray-300">
+      <div className="flex items-center w-full py-3 bg-white rounded-md px-4 shadow-md border border-gray-300">
         <LuMapPin className="text-gray-800 w-5 h-5" />
         <input
           type="text"
@@ -56,7 +56,7 @@ export default function BookingForm() {
       </div>
 
       {/* DROP OFF LOCATION */}
-      <div className="flex items-center w-full h-[60px] bg-white rounded-md px-4 shadow-md border border-gray-300">
+      <div className="flex items-center w-full py-3 bg-white rounded-md px-4 shadow-md border border-gray-300">
         <LuMapPin className="text-gray-800 w-5 h-5" />
         <input
           type="text"
@@ -74,7 +74,7 @@ export default function BookingForm() {
         {/* Pickup Date */}
         <div className="flex flex-col gap-1 ">
           <label className="text-[15px] font-medium text-gray-600">Pickup Date</label>
-          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center gap-3 border border-gray-300">
+          <div className="py-3 bg-white rounded-md shadow-md px-4 flex items-center gap-3 border border-gray-300">
             <CalendarDays className="w-5 h-5" />
             <input
               type="date"
@@ -93,7 +93,7 @@ export default function BookingForm() {
 
         {/* Transfer Type */}
         <div className="flex flex-col gap-1">
-          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
+          <div className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
             <div className='flex gap-2 justify-center items-center'>
               <Car className='h-5 w-5'/>
             <span className="text-gray-900">Select Transfer type</span>
@@ -104,7 +104,7 @@ export default function BookingForm() {
 
         {/* Extra Stop */}
         <div className="flex flex-col gap-1">
-          <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
+          <div className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
             <div className='flex gap-2 justify-center items-center'>
           <GoClock className="w-5 h-5" />
               <span className="text-gray-600">No Extra Stop</span>
@@ -117,7 +117,7 @@ export default function BookingForm() {
 
       {/* SELECT SEATS */}
       <div className="flex flex-col gap-1">
-        <div className="h-[60px] bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
+        <div className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
           <div className="flex items-center gap-3">
             <Armchair className="w-6 h-6 text-gray-800" />
             <span className="text-gray-800">Select Seats</span>
@@ -141,7 +141,7 @@ export default function BookingForm() {
       </div>
 
       {/* FINAL BUTTON */}
-      <button className="h-[65px] rounded-md bg-gray-300 text-gray-500 text-[18px] font-medium shadow-md">
+      <button className="py-4 rounded-md bg-[#d1d5dc] text-gray-500 text-[18px] font-medium shadow-md">
         CHECK FARE
       </button>
 

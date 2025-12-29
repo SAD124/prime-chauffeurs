@@ -16,7 +16,7 @@ const Navbar = () => {
               <img
                 src="/Images/logo.webp"
                 alt="Logo"
-                className="w-auto h-20 object-contain cursor-pointer"
+                className="w-auto h-18 object-contain cursor-pointer"
               />
             </HashLink>
           </div>

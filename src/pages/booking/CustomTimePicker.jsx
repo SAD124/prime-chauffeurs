@@ -38,7 +38,7 @@ export default function CustomTimePicker() {
       <label className="text-[13px] font-medium text-gray-600">Pickup Time</label>
 
       <div
-        className="relative py-4 bg-white rounded-md shadow-md px-4 flex items-center justify-between cursor-pointer border border-gray-300"
+        className="relative py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between cursor-pointer border border-gray-300"
         onClick={() => setOpen(!open)}
       >
         {/* LEFT SIDE: Clock + Text */}

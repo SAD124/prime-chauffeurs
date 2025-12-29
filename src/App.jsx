@@ -17,7 +17,7 @@ const App = () => {
     <BrowserRouter>
   <Navbar />
 
-  <div className="mt-22">
+  <div className="mt-20">
     <Routes>
       <Route path="/" element={
         <>
