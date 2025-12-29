@@ -20,7 +20,7 @@ export default function ContactPage() {
     <>
       <ContactPageMini />
 
-      <section id="contact" className="bg-[#121212] text-white px-6 py-20">
+      <section id="contact" className="bg-[#121212] text-white px-6 py-20 hidden md:block">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* LEFT CONTENT */}
           <div>
