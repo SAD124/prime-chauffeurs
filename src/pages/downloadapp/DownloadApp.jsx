@@ -5,85 +5,59 @@ import DownloadAppMini from "./DownloadAppMini";
 const DownloadApp = () => {
   return (
     <>
+      {/* MOBILE VERSION */}
       <DownloadAppMini />
 
-      <section id="app" className="w-full bg-[#1E1E1E] py-20 border border-t-[#D4C5A0] hidden md:block scroll-mt-16">
-        {/* Main container */}
-        <div className="max-w-6xl mx-auto flex items-center justify-between gap-20">
+      {/* DESKTOP VERSION */}
+      <section
+        id="app"
+        className="hidden md:flex w-full bg-[#1E1E1E] py-20 border-t border-[#D4C5A0] scroll-mt-16 justify-center"
+      >
+        <div className="max-w-7xl flex justify-between items-center gap-36 px-4">
 
-          {/* LEFT SIDE */}
-          <div className="flex flex-col gap-12 w-[515.6px]">
+          {/* LEFT SIDE: Icon + Heading + Store Buttons */}
+          <div className="flex flex-col gap-12 max-w-[510px]">
 
-            {/* ICON + HEADING */}
-            <div className="flex items-center gap-4 w-[515.6px]">
-
-              {/* Download Icon (Tilt on Hover) */}
-              <div
-                className="w-12 h-12 rounded-[14px] bg-[#D4C5A0]
-                flex items-center justify-center
-                transition-transform duration-300
-                hover:rotate-[-8deg] hover:scale-110"
-              >
-                <Layers className="text-black w-6 h-6" />
+            {/* Icon + Heading */}
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-12 bg-[#D4C5A0] rounded-[14px] flex items-center justify-center
+                              transition-transform duration-300 hover:rotate-[-8deg] hover:scale-110">
+                <Layers className="w-6 h-6 text-black" />
               </div>
 
-              {/* Heading */}
-              <h2 className="text-[48px] font-bold text-[#D4C5A0] leading-10">
+              <h2 className="text-[#D4C5A0] font-bold text-[48px] leading-none whitespace-nowrap">
                 Download the app
               </h2>
             </div>
 
-            {/* STORE BUTTONS */}
-            <div className="flex items-center gap-4">
-
-              {/* Apple Store */}
-              <button
-                className="flex items-center justify-center gap-2
-                rounded-full border border-white px-4 py-3
-                transition-transform duration-300
-                hover:scale-110 "
-              >
+            {/* Store Buttons */}
+            <div className="flex gap-4">
+              <button className="flex items-center gap-2 px-4 py-3 rounded-full border border-white
+                                 transition-transform duration-300 hover:scale-110">
                 <FaApple className="w-5 h-5 text-[#D4C5A0]" />
-                <span className="text-[16px] font-normal font-['Arial'] text-[#D4C5A0] leading-6">
-                  Apple Store
-                </span>
+                <span className="text-[#D4C5A0] font-normal text-[16px]">Apple Store</span>
               </button>
 
-              {/* Google Play */}
-              <button
-                className="flex items-center justify-center gap-2
-                rounded-full border border-white px-4 py-3
-                transition-transform duration-300
-                hover:scale-110"
-              >
+              <button className="flex items-center gap-2 px-4 py-3 rounded-full border border-white
+                                 transition-transform duration-300 hover:scale-110">
                 <FaGooglePlay className="w-5 h-5 text-[#D4C5A0]" />
-                <span className="text-[16px] font-normal font-['Arial'] text-[#D4C5A0] leading-6">
-                  Google Play
-                </span>
+                <span className="text-[#D4C5A0] font-normal text-[16px]">Google Play</span>
               </button>
-
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
-          <div className="flex items-center gap-6">
-
-            {/* QR Image (Tilt on Hover) */}
+          {/* RIGHT SIDE: QR + Mobile Image */}
+          <div className="flex items-center">
             <img
               src="/Images/scan.webp"
               alt="QR Code"
-              className="w-98 h-48 object-contain
-              transition-transform duration-300
-              hover:rotate-6 hover:scale-105"
+              className="w-auto h-[192px] object-contain transition-transform duration-300 hover:rotate-6 hover:scale-105"
             />
 
-            {/* Mobile Image (Opposite Tilt) */}
             <img
               src="/Images/mobile.webp"
               alt="App Mobile Preview"
-              className="w-98 h-84 object-contain
-              transition-transform duration-300
-              hover:rotate-[-5deg] hover:scale-105"
+              className="w-auto h-[336px] object-contain transition-transform duration-300 hover:rotate-[-5deg] hover:scale-105"
             />
           </div>
         </div>
