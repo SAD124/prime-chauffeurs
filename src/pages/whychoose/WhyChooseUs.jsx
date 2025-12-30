@@ -14,7 +14,7 @@ const benefits = [
   {
     image: "/Images/choose3.webp",
     title: "Always On Time",
-    text: "Punctual and dependable transportation for every need",
+    text: "Punctual and dependable transportation for every need.",
   },
 ];
 
@@ -25,27 +25,30 @@ const WhyChooseUs = () => {
 
       <section
         id="services"
-        className="w-full bg-[#1E1E1E] py-20 justify-center hidden lg:flex scroll-mt-12"
+        className="hidden lg:block w-full bg-[#1E1E1E] py-24 scroll-mt-12"
       >
-        <div className="w-full max-w-6xl flex flex-col items-center gap-20">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col gap-20">
 
-          {/* TOP CONTENT */}
-          <div className="flex flex-col items-center gap-4 text-center">
-            <p className="text-white text-[16px] tracking-wide">Benefits</p>
-            <h2 className="text-white font-roboto font-bold text-[40px] leading-[120%]">
+          {/* Header */}
+          <div className="text-center flex flex-col gap-4">
+            <p className="text-white text-sm tracking-wide">Benefits</p>
+
+            <h2 className="text-white font-roboto font-bold text-4xl leading-tight">
               Why choose{" "}
-              <span className="font-['Rouge_Script'] text-[64px] font-normal leading-[120%] text-[#D4C5A0]">
+              <span className="font-['Rouge_Script'] text-6xl font-normal text-[#D4C5A0]">
                 Shoffr
               </span>{" "}
               for your rides
             </h2>
-            <p className="text-gray-300 text-[16px] leading-[150%] max-w-2xl">
-              Discover the advantages of premium transportation that goes beyond simple point A to point B travel.
+
+            <p className="text-gray-300 text-base max-w-2xl mx-auto">
+              Discover the advantages of premium transportation that goes beyond
+              simple point A to point B travel.
             </p>
           </div>
 
-          {/* BOTTOM CARDS */}
-          <div className="w-full flex justify-between gap-16">
+          {/* Cards */}
+          <div className="grid grid-cols-3 gap-16">
             {benefits.map((item, index) => (
               <div
                 key={index}
@@ -56,10 +59,12 @@ const WhyChooseUs = () => {
                   alt={item.title}
                   className="w-20 h-24 object-contain"
                 />
-                <h3 className="text-white font-roboto font-bold text-[19px] leading-[130%]">
+
+                <h3 className="text-white font-roboto font-semibold text-lg">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 font-roboto text-[15px] leading-[150%] w-84">
+
+                <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
                   {item.text}
                 </p>
               </div>

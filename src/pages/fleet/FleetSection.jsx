@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { Luggage, Users } from "lucide-react";
 import FleetSectionMini from "./FleetSectionMini";
-import { HashLink } from "react-router-hash-link";
 
 const FleetSection = () => {
   const cars = [
-    { img: "/Images/fleet1.png", name: "Mercedes-Benz S-class", luggage: 4, users: 8 },
-    { img: "/Images/fleet2.png", name: "Mercedes-Benz E-class", luggage: 3, users: 4 },
-    { img: "/Images/fleet3.png", name: "Mercedes V-class 200", luggage: 5, users: 7 },
+    { img: "/Images/fleet1.png", name: "Mercedes-Benz S-Class", luggage: 4, users: 8 },
+    { img: "/Images/fleet2.png", name: "Mercedes-Benz E-Class", luggage: 3, users: 4 },
+    { img: "/Images/fleet3.png", name: "Mercedes V-Class 200", luggage: 5, users: 7 },
     { img: "/Images/fleet4.png", name: "Mercedes-Benz V 300", luggage: 6, users: 8 },
-    { img: "/Images/fleet5.png", name: "Mercedes V-class 250", luggage: 4, users: 7 },
+    { img: "/Images/fleet5.png", name: "Mercedes V-Class 250", luggage: 4, users: 7 },
     { img: "/Images/fleet6.png", name: "Mercedes Sprinter", luggage: 7, users: 15 },
     { img: "/Images/fleet7.png", name: "Audi Q7", luggage: 4, users: 6 },
     { img: "/Images/fleet8.png", name: "Audi Q8", luggage: 4, users: 4 },
@@ -20,74 +19,71 @@ const FleetSection = () => {
     <>
       <FleetSectionMini />
 
+      {/* Desktop */}
       <section
         id="rides"
-        className="w-full lg:flex justify-center hidden md:block py-18 scroll-mt-12"
+        className="hidden md:block w-full py-20 scroll-mt-16"
       >
-        <div className="w-full lg:rounded-2xl lg:flex sm:flex-row justify-center items-center gap-5">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-12 items-center px-8">
 
-          {/* LEFT IMAGE */}
-          <div className="w-xl overflow-hidden">
+          {/* Left Image */}
+          <div className="w-full rounded-2xl overflow-hidden">
             <img
               src="/Images/fleet.webp"
-              alt="Fleet Cars"
+              alt="Our Fleet"
               className="w-full h-full object-cover"
             />
           </div>
 
-          {/* RIGHT SIDE CONTENT */}
-          <div className="flex flex-col items-center text-center max-w-2xl">
+          {/* Right Content */}
+          <div className="flex flex-col items-center text-center">
 
-            {/* TEXT */}
-            <div className="w-full mb-3">
-              <h2 className="w-full font-roboto font-bold text-[35px] leading-[120%] text-black ">
-                Explore Our Fleet
-              </h2>
+            {/* Heading */}
+            <h2 className="font-roboto font-bold text-4xl text-black leading-tight">
+              Explore Our Fleet
+            </h2>
 
-              <p className="mt-6 text-[16px] leading-[150%] font-roboto text-gray-600 max-w-lg mx-auto">
-                Suzellbus offers a wide range of vehicles to suit your needs - elegant, sophisticated and reliable. Wether you need a premium sadan, a comfortable SUV, or an economical car, we've got you covered. Our diverse fleet reflects our commitment to your journey - book now and experience the difference.
-              </p>
-            </div>
+            {/* Description */}
+            <p className="mt-6 text-base text-gray-600 max-w-lg leading-relaxed">
+              Suzellbus offers a wide range of vehicles to suit your needs — elegant, sophisticated, and reliable. Whether you need a premium sedan, a comfortable SUV, or an economical car, we've got you covered. Our diverse fleet reflects our commitment to your journey — book now and experience the difference.
+            </p>
 
-            {/* GRID OF CARS */}
-            <div className="grid grid-cols-3 gap-3 my-5 w-full">
+            {/* Cars Grid */}
+            <div className="grid grid-cols-3 gap-6 w-full mt-10">
               {cars.map((car, index) => (
-                <div
-                  key={index}
-                  className="cursor-pointer overflow-hidden"
-                >
-                  <div className="w-52 h-40 lg:rounded-[30px] overflow-hidden bg-gray-100 px-3 flex items-center justify-center">
+                <div key={index} className="flex flex-col items-center cursor-pointer">
+
+                  <div className="w-full h-36 rounded-3xl bg-gray-100 flex items-center justify-center px-4 py-6">
                     <img
                       src={car.img}
                       alt={car.name}
-                      className=" object-cover"
+                      className="max-h-full object-contain"
                     />
                   </div>
 
-                  <div className="mt-3 px-2 flex flex-col items-center mb-2">
-                    <span className="font-semibold mb-1 text-sm text-center">
-                      {car.name}
-                    </span>
+                  <div className="mt-3 text-center">
+                    <p className="font-semibold text-sm">{car.name}</p>
 
-                    <div className="flex gap-3 mt-1 items-center">
+                    <div className="flex justify-center gap-4 mt-2 text-sm">
                       <div className="flex items-center gap-1">
-                        <Luggage className="h-4 w-4 stroke-green-600" strokeWidth={3} />
-                        <span className="text-sm">{car.luggage}x</span>
+                        <Luggage className="w-4 h-4 text-green-600" />
+                        <span>{car.luggage}</span>
                       </div>
 
                       <div className="flex items-center gap-1">
-                        <Users className="h-3 w-3 stroke-purple-600" strokeWidth={3} />
-                        <span className="text-sm">{car.users}x</span>
+                        <Users className="w-4 h-4 text-purple-600" />
+                        <span>{car.users}</span>
                       </div>
                     </div>
                   </div>
+
                 </div>
               ))}
             </div>
 
-            {/* BOOK NOW BUTTON */}
+            {/* CTA */}
             <HashLink smooth to="/#booking-section">
-              <button className=" mt-10 bg-[#d2b76b] text-white font-roboto text-[16px] px-12 py-3 rounded-md flex items-center justify-center">
+              <button className="mt-12 bg-[#d2b76b] text-white px-12 py-3 rounded-md text-base font-medium hover:opacity-90 transition">
                 Book Now
               </button>
             </HashLink>

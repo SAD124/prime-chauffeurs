@@ -4,50 +4,48 @@ import NewMemberDiscountMini from "./NewMemberDiscountMini";
 const NewMemberDiscount = () => {
   return (
     <>
+      {/* Mobile */}
       <NewMemberDiscountMini />
 
+      {/* Desktop */}
       <section
         id="discount-section"
-        className="relative w-full overflow-hidden py-25 border border-t-[#D4C5A0] hidden md:block scroll-mt-12"
+        className="relative hidden md:block w-full py-25 scroll-mt-16 border border-t-[#D4C5A0]"
       >
-        {/* Background Image */}
+        {/* Background image */}
         <div
-          className="absolute inset-0 w-full h-full"
-          style={{
-            backgroundImage: 'url("/Images/memberdiscount.webp")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url("/Images/memberdiscount.webp")' }}
         />
 
-        {/* Black Overlay */}
-        <div className="absolute inset-0 w-full h-full bg-black opacity-40" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
 
         {/* Content */}
-        <div className="relative max-w-5xl mx-auto h-full flex flex-col justify-center items-center gap-10 text-center px-4">
-
+        <div className="relative max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-8">
+          
           {/* Heading */}
-          <h2 className="text-white font-roboto font-bold text-[45px] leading-[120%]">
-            Discount up to 10% only for new Member
+          <h2 className="text-white font-roboto font-bold text-4xl lg:text-5xl leading-tight max-w-5xl">
+            Discount up to 10% only for new members
           </h2>
 
-          {/* Sub text */}
-          <p className="text-gray-300 font-roboto font-normal text-[16px] leading-[140%] w-full">
-            Prime Chauffeur delivers premium transportation services with professional drivers and luxury vehicles. Experience comfort, reliability and elegance for airport transfers, corporate travel, and special events.
+          {/* Description */}
+          <p className="text-gray-300 font-roboto text-base leading-relaxed max-w-5xl">
+            Prime Chauffeur delivers premium transportation services with professional drivers and luxury vehicles. Experience comfort, reliability, and elegance for airport transfers, corporate travel, and special events.
           </p>
 
           {/* Buttons */}
-          <div className="flex gap-5 mt-2">
+          <div className="flex gap-5 pt-4">
             <Link
               to="/book"
-              className="bg-[#D4C5A0] rounded-md text-white font-roboto font-normal text-[15px] px-8 py-3 flex justify-center items-center"
+              className="bg-[#D4C5A0] text-black rounded-md px-8 py-3 text-sm font-medium hover:bg-white transition"
             >
               Book now
             </Link>
 
             <Link
               to="/book"
-              className="rounded-md border border-white text-white font-roboto font-normal text-[15px] px-8 py-3 flex justify-center items-center"
+              className="border border-white text-white rounded-md px-8 py-3 text-sm font-medium hover:bg-white hover:text-black transition"
             >
               Get Discount
             </Link>
