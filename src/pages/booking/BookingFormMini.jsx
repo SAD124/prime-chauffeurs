@@ -27,10 +27,18 @@ export default function BookingFormMini() {
   const [openSeats, setOpenSeats] = useState(false);
 
   const transferOptions = ["One Way", "Two Way (Round Trip)"];
-  const stopOptions = ["No Extra Stop", "1 Extra Stop", "2 Extra Stops", "3 Extra Stops", "4 Extra Stops", "5 Extra Stops", "6 Extra Stops"];
-  const seatOptions = Array.from({length: 15}, (_, i) => `${i + 1} Seats`);
+  const stopOptions = [
+    "No Extra Stop",
+    "1 Extra Stop",
+    "2 Extra Stops",
+    "3 Extra Stops",
+    "4 Extra Stops",
+    "5 Extra Stops",
+    "6 Extra Stops",
+  ];
+  const seatOptions = Array.from({ length: 15 }, (_, i) => `${i + 1} Seats`);
 
-  // --- Dummy airport selection handlers ---
+  // --- Airport selection handlers ---
   const handlePickupSelect = (location) => {
     setPickupLocation(location);
     toast.success(`Pickup location set to ${location}`);
@@ -56,17 +64,16 @@ export default function BookingFormMini() {
       transferType,
       extraStop,
       seats,
-      specialNotes
+      specialNotes,
     };
 
     localStorage.setItem("bookingData", JSON.stringify(bookingData));
     toast.success("Booking saved! Redirecting...");
-    window.open("/check-fare", "_blank");
+    window.open("/check-fare-mobile", "_blank"); // point to your mini check fare page
   };
 
   return (
     <div className="w-full max-w-4xl mx-auto flex flex-col gap-3 md:hidden px-4 py-6">
-
       <Toaster position="top-center" reverseOrder={false} />
 
       {/* Top Tabs */}
@@ -149,7 +156,10 @@ export default function BookingFormMini() {
                 <div
                   key={idx}
                   className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer"
-                  onClick={() => { setTransferType(opt); setOpenTransfer(false); }}
+                  onClick={() => {
+                    setTransferType(opt);
+                    setOpenTransfer(false);
+                  }}
                 >
                   {opt}
                 </div>
@@ -176,7 +186,10 @@ export default function BookingFormMini() {
                 <div
                   key={idx}
                   className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer"
-                  onClick={() => { setExtraStop(opt); setOpenStop(false); }}
+                  onClick={() => {
+                    setExtraStop(opt);
+                    setOpenStop(false);
+                  }}
                 >
                   {opt}
                 </div>
@@ -203,7 +216,10 @@ export default function BookingFormMini() {
                 <div
                   key={idx}
                   className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer"
-                  onClick={() => { setSeats(opt); setOpenSeats(false); }}
+                  onClick={() => {
+                    setSeats(opt);
+                    setOpenSeats(false);
+                  }}
                 >
                   {opt}
                 </div>
@@ -215,7 +231,9 @@ export default function BookingFormMini() {
 
       {/* Special Notes */}
       <div className="flex flex-col gap-1">
-        <label className="text-[14px] font-medium text-gray-500">Special Requests or Notes (Optional)</label>
+        <label className="text-[14px] font-medium text-gray-500">
+          Special Requests or Notes (Optional)
+        </label>
         <textarea
           rows={3}
           placeholder="Add any special requests..."
