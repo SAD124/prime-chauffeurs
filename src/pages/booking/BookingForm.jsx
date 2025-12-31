@@ -8,6 +8,7 @@ import { toast, Toaster } from 'react-hot-toast';
 import AirportPicker from "./AirportPicker";
 import AirportDropoff from "./AirportDropoff";
 import CustomTimePicker from "./CustomTimePicker";
+import BookingFormMini from "./BookingFormMini";
 
 export default function BookingForm() {
   // --- Form State ---
@@ -58,6 +59,7 @@ export default function BookingForm() {
 
   return (
     <>
+      <BookingFormMini/>
       <Toaster position="top-center" reverseOrder={false} />
 
       <div className="w-full max-w-6xl mx-auto lg:flex flex-col gap-5 hidden md:block">
