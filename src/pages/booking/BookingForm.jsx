@@ -1,151 +1,222 @@
 "use client";
-import { Armchair, CalendarDays, Car, FileText } from 'lucide-react';
+import { useState } from "react";
+import { Armchair, Car } from 'lucide-react';
 import { GoClock } from "react-icons/go";
-import { LuMapPin, LuUsers } from "react-icons/lu";
-import { PiAirplaneTilt } from "react-icons/pi";
+import { LuMapPin } from "react-icons/lu";
+import { toast, Toaster } from 'react-hot-toast';
+
 import AirportPicker from "./AirportPicker";
 import AirportDropoff from "./AirportDropoff";
-import { Pin } from "lucide-react";
-import { IoChevronDown } from 'react-icons/io5';
-import CustomTimePicker from './CustomTimePicker';
-import BookingFormMini from './BookingFormMini';
+import CustomTimePicker from "./CustomTimePicker";
 
 export default function BookingForm() {
+  // --- Form State ---
+  const [pickupLocation, setPickupLocation] = useState("");
+  const [dropoffLocation, setDropoffLocation] = useState("");
+  const [pickupDate, setPickupDate] = useState("");
+  const [pickupTime, setPickupTime] = useState("");
+  const [transferType, setTransferType] = useState("Select Transfer type");
+  const [extraStop, setExtraStop] = useState("No Extra Stop");
+  const [seats, setSeats] = useState("Select Seats");
+
+  // --- Dropdown state ---
+  const [openTransfer, setOpenTransfer] = useState(false);
+  const [specialNotes, setSpecialNotes] = useState("");
+  const [openStop, setOpenStop] = useState(false);
+  const [openSeats, setOpenSeats] = useState(false);
+
+  const transferOptions = ["One Way", "Two Way (Round Trip)"];
+  const stopOptions = ["No Extra Stop", "1 Extra Stop", "2 Extra Stops", "3 Extra Stops", "4 Extra Stops", "5 Extra Stops", "6 Extra Stops"];
+  const seatOptions = Array.from({length: 15}, (_, i) => `${i + 1} Seats`);
+
+  // --- Dummy airport selection handlers ---
+  const handlePickupSelect = (location) => {
+    setPickupLocation(location);
+    toast.success(`Pickup location set to ${location}`);
+  };
+
+  const handleDropoffSelect = (location) => {
+    setDropoffLocation(location);
+    toast.success(`Drop-off location set to ${location}`);
+  };
+
+  // --- Check Fare Handler ---
+  const handleCheckFare = () => {
+    const bookingData = {
+      pickupLocation,
+      dropoffLocation,
+      pickupDate,
+      pickupTime,
+      transferType,
+      extraStop,
+      seats
+    };
+
+    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+    window.open("/check-fare", "_blank");
+  };
+
   return (
     <>
-        <BookingFormMini/>
+      <Toaster position="top-center" reverseOrder={false} />
+
       <div className="w-full max-w-6xl mx-auto lg:flex flex-col gap-5 hidden md:block">
 
-      {/* TOP TABS */}
-<div className="flex flex-col gap-5">
-
-  {/* Row 1 — Book by Distance (single) */}
-  <button className="w-98 rounded-md h-10 border border-gray-300 bg-gray-100 shadow-lg flex items-center justify-center text-[16px] font-medium">
-    Book by Distance
-  </button>
-
-  {/* Row 2 — Pickup + Drop-off (side by side) */}
-  <div className="grid grid-cols-2 gap-4">
-
-    {/* Airport Pickup */}
-    <AirportPicker/>
-
-    {/* Airport Drop-Off */}
-    <AirportDropoff/>
-
-  </div>
-</div>
-
-
-      {/* PICKUP LOCATION */}
-      <div className="flex items-center w-full py-3 bg-white rounded-md px-4 shadow-md border border-gray-300">
-        <LuMapPin className="text-gray-800 w-5 h-5" />
-        <input
-          type="text"
-          placeholder="Enter Pick Up Location"
-          className="w-full ml-3 outline-none text-[16px] placeholder:text-gray-400"
-        />
-        <div className="flex gap-2 justify-center items-center">
-          <button className="w-8 h-8 rounded-md bg-black text-white flex items-center justify-center">
-        <LuMapPin className="text-white w-5 h-5" />
-          </button>
-          <button className="w-8 h-8 rounded-md bg-black text-white flex items-center justify-center">
-          <Pin className="h-5 w-5"/>
+        {/* BOOK BY DISTANCE */}
+        <button className="w-full rounded-md h-10 border border-gray-300 bg-gray-100 shadow-lg flex items-center justify-center text-[16px] font-medium">
+          Book by Distance
         </button>
+
+        {/* AIRPORT PICKERS */}
+        <div className="grid grid-cols-2 gap-4">
+          <AirportPicker onSelect={handlePickupSelect} />
+          <AirportDropoff onSelect={handleDropoffSelect} />
         </div>
-      </div>
 
-      {/* DROP OFF LOCATION */}
-      <div className="flex items-center w-full py-3 bg-white rounded-md px-4 shadow-md border border-gray-300">
-        <LuMapPin className="text-gray-800 w-5 h-5" />
-        <input
-          type="text"
-          placeholder="Enter Drop Off Location"
-          className="w-full ml-3 outline-none text-[16px] placeholder:text-gray-400"
-        />
-          <button className="w-8 h-8 rounded-md bg-black text-white flex items-center justify-center">
-          <Pin className="h-5 w-5"/>
-        </button>
-      </div>
-
-      {/* DATE + TIME */}
-      <div className="grid grid-cols-2 gap-4 ">
-
-        {/* Pickup Date */}
-        <div className="flex flex-col gap-1 ">
-          <label className="text-[15px] font-medium text-gray-600">Pickup Date</label>
-          <div className="py-3 bg-white rounded-md shadow-md px-4 flex items-center gap-3 border border-gray-300">
-            <CalendarDays className="w-5 h-5" />
+        {/* PICKUP & DROPOFF LOCATION INPUTS */}
+        <div className="grid grid-cols-2 gap-4">
+          <div className="flex items-center w-full py-3 bg-white rounded-md px-4 shadow-md border border-gray-300">
+            <LuMapPin className="text-gray-800 w-5 h-5" />
             <input
-              type="date"
-              className="w-full outline-none text-[16px]"
+              type="text"
+              placeholder="Enter Pick Up Location"
+              className="w-full ml-3 outline-none text-[16px] placeholder:text-gray-400"
+              value={pickupLocation}
+              readOnly
+            />
+          </div>
+
+          <div className="flex items-center w-full py-3 bg-white rounded-md px-4 shadow-md border border-gray-300">
+            <LuMapPin className="text-gray-800 w-5 h-5" />
+            <input
+              type="text"
+              placeholder="Enter Drop Off Location"
+              className="w-full ml-3 outline-none text-[16px] placeholder:text-gray-400"
+              value={dropoffLocation}
+              readOnly
             />
           </div>
         </div>
 
-        {/* Pickup Time */}
-        <CustomTimePicker/>
+        {/* PICKUP DATE & TIME */}
+        <div className="grid grid-cols-2 gap-4">
+          <div className="flex flex-col gap-1">
+            <label className="text-[15px] font-medium text-gray-600">Pickup Date</label>
+            <input
+              type="date"
+              className="py-3 px-4 rounded-md border border-gray-300"
+              value={pickupDate}
+              onChange={(e) => setPickupDate(e.target.value)}
+            />
+          </div>
 
-      </div>
+          <CustomTimePicker onSelect={(time) => setPickupTime(time)} />
+        </div>
 
-      {/* TRANSFER TYPE + EXTRA STOP */}
-      <div className="grid grid-cols-2 gap-4">
+        {/* TRANSFER TYPE & EXTRA STOP */}
+        <div className="grid grid-cols-3 gap-4">
 
-        {/* Transfer Type */}
-        <div className="flex flex-col gap-1">
-          <div className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
-            <div className='flex gap-2 justify-center items-center'>
-              <Car className='h-5 w-5'/>
-            <span className="text-gray-900">Select Transfer type</span>
+          {/* Transfer Type */}
+          <div className="relative">
+            <div
+              className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300 cursor-pointer"
+              onClick={() => setOpenTransfer(!openTransfer)}
+            >
+              <div className='flex gap-2 justify-center items-center'>
+                <Car className='h-5 w-5'/>
+                <span className="text-gray-900">{transferType}</span>
+              </div>
             </div>
-            <img src="/Images/arrow.webp" className="w-5" />
+            {openTransfer && (
+              <div className="absolute w-full bg-white border rounded-md shadow-md mt-1 z-10 max-h-60 overflow-y-auto">
+                {transferOptions.map((opt, idx) => (
+                  <div
+                    key={idx}
+                    className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer"
+                    onClick={() => { setTransferType(opt); setOpenTransfer(false); }}
+                  >
+                    {opt}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
 
-        {/* Extra Stop */}
-        <div className="flex flex-col gap-1">
-          <div className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
-            <div className='flex gap-2 justify-center items-center'>
-          <GoClock className="w-5 h-5" />
-              <span className="text-gray-600">No Extra Stop</span>
+          {/* Extra Stop */}
+          <div className="relative">
+            <div
+              className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300 cursor-pointer"
+              onClick={() => setOpenStop(!openStop)}
+            >
+              <div className='flex gap-2 justify-center items-center'>
+                <GoClock className="w-5 h-5" />
+                <span className="text-gray-600">{extraStop}</span>
+              </div>
             </div>
-            <img src="/Images/arrow.webp" className="w-5" />
+            {openStop && (
+              <div className="absolute w-full bg-white border rounded-md shadow-md mt-1 z-10 max-h-60 overflow-y-auto">
+                {stopOptions.map((opt, idx) => (
+                  <div
+                    key={idx}
+                    className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer"
+                    onClick={() => { setExtraStop(opt); setOpenStop(false); }}
+                  >
+                    {opt}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
+
+          {/* Seats */}
+          <div className="relative">
+            <div
+              className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300 cursor-pointer"
+              onClick={() => setOpenSeats(!openSeats)}
+            >
+              <div className="flex items-center gap-3">
+                <Armchair className="w-6 h-6 text-gray-800" />
+                <span className="text-gray-800">{seats}</span>
+              </div>
+            </div>
+            {openSeats && (
+              <div className="absolute w-full bg-white border rounded-md shadow-md mt-1 z-10 max-h-60 overflow-y-auto">
+                {seatOptions.map((opt, idx) => (
+                  <div
+                    key={idx}
+                    className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer"
+                    onClick={() => { setSeats(opt); setOpenSeats(false); }}
+                  >
+                    {opt}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
         </div>
 
-      </div>
-
-      {/* SELECT SEATS */}
-      <div className="flex flex-col gap-1">
-        <div className="py-3 bg-white rounded-md shadow-md px-4 flex items-center justify-between border border-gray-300">
-          <div className="flex items-center gap-3">
-            <Armchair className="w-6 h-6 text-gray-800" />
-            <span className="text-gray-800">Select Seats</span>
-          </div>
-          <img src="/Images/arrow.webp" className="w-5" />
+        {/* SPECIAL NOTES */}
+        <div className="flex flex-col gap-1">
+          <label className="text-[14px] font-medium text-gray-500">Special Requests or Notes (Optional)</label>
+          <textarea
+            rows={3}
+            placeholder="Add any special requests..."
+            className="w-full bg-white rounded-md shadow-lg px-4 py-2 border border-gray-300"
+            value={specialNotes}
+            onChange={(e) => setSpecialNotes(e.target.value)}
+          />
         </div>
+
+        {/* FINAL BUTTON */}
+        <button
+          className="py-4 rounded-md bg-black text-white text-[18px] font-medium shadow-md"
+          onClick={handleCheckFare}
+        >
+          CHECK FARE
+        </button>
+
       </div>
-
-      {/* SPECIAL NOTES */}
-      <div className="flex flex-col gap-1">
-        <label className="text-[14px] font-medium text-gray-500">Special Requests or Notes (Optional)</label>
-        <div className="relative w-full border rounded-md border-gray-300 ">
-      {/* Icon */}
-      <FileText className="absolute top-8 left-4 -translate-y-1/2 text-gray-400 w-5 h-5" />
-      <textarea
-        rows={3}
-        placeholder="Add any special requests, instructions or notes for your driver (e.g., luggage info, special requirements, etc.)"
-        className="w-full bg-white rounded-md shadow-lg px-12 py-5 outline-none text-[15px]"
-      />
-    </div>
-      </div>
-
-      {/* FINAL BUTTON */}
-      <button className="py-4 rounded-md bg-[#d1d5dc] text-gray-500 text-[18px] font-medium shadow-md">
-        CHECK FARE
-      </button>
-
-    </div>
     </>
   );
 }

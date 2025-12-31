@@ -3,7 +3,7 @@ import { PiAirplaneTilt } from "react-icons/pi";
 import { IoChevronDown } from "react-icons/io5";
 import AirportDropoffMini from "./AirportDropoffMini";
 
-export default function AirportDropoff() {
+export default function AirportDropoff({ onSelect }) {
   const [open, setOpen] = useState(false);
 
   const airports = [
@@ -22,40 +22,24 @@ export default function AirportDropoff() {
     <>
       <AirportDropoffMini/>
       <div className="relative w-full hidden md:block">
-      {/* BUTTON */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="h-12 w-full lg:flex items-center justify-between gap-3 
-                   rounded-md bg-gray-50 shadow-md border border-gray-300 px-4 "
-      >
-        {/* LEFT SIDE — Icon + Text */}
-        <div className="flex items-center gap-3">
-          <PiAirplaneTilt className="w-5 h-5 text-gray-400" />
-          <span className="font-medium text-gray-600">Select Airport as Drop-off</span>
-        </div>
-
-        {/* RIGHT SIDE — Dropdown Arrow */}
-        <IoChevronDown
-          className={`w-5 h-5 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      {/* DROPDOWN */}
+      <button onClick={() => setOpen(!open)} className="...">Select Airport as Pickup</button>
       {open && (
-        <div className="absolute z-20 mt-2 w-full bg-white shadow-lg border max-h-90 overflow-y-auto text-gray-700">
-          {airports.map((item, index) => (
+        <div className="absolute bg-white w-full border shadow-lg z-20">
+          {airports.map((item, idx) => (
             <div
-              key={index}
-              className="px-4 py-2 hover:bg-blue-600 cursor-pointer text-sm hover:text-white"
+              key={idx}
+              className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer"
+              onClick={() => {
+                onSelect(item);
+                setOpen(false);
+              }}
             >
               {item}
             </div>
           ))}
         </div>
       )}
-    </div>
+        </div>
     </>
   );
 }

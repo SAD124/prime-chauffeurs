@@ -3,7 +3,7 @@ import { GoClock } from "react-icons/go";
 import { IoChevronDown } from "react-icons/io5";
 import CustomTimePickerMini from "./CustomTimePickerMini";
 
-export default function CustomTimePicker() {
+export default function CustomTimePicker({onSelect}) {
   const [open, setOpen] = useState(false);
   const [selectedTime, setSelectedTime] = useState("");
   const dropdownRef = useRef(null);
@@ -64,9 +64,11 @@ export default function CustomTimePicker() {
                 key={index}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
                 onClick={() => {
-                  setSelectedTime(time);
-                  setOpen(false);
-                }}
+  setSelectedTime(time);   // update local state
+  setOpen(false);          // close dropdown
+  if (onSelect) onSelect(time);  // send selected time to parent
+}}
+
               >
                 {time}
               </div>
