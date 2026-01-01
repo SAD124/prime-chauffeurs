@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PiAirplaneTilt } from "react-icons/pi";
 import { IoChevronDown } from "react-icons/io5";
 
-export default function AirportPickerMini() {
+export default function AirportPickerMini({ onSelect }) {
   const [open, setOpen] = useState(false);
 
   const airports = [
@@ -43,13 +43,18 @@ export default function AirportPickerMini() {
       {open && (
         <div className="absolute z-20 mt-2 w-full bg-white shadow-lg border max-h-90 overflow-y-auto text-gray-700">
           {airports.map((item, index) => (
-            <div
-              key={index}
-              className="px-4 py-2 hover:bg-blue-600 cursor-pointer text-sm hover:text-white"
-            >
-              {item}
-            </div>
-          ))}
+  <div
+    key={index}
+    className="px-4 py-2 hover:bg-blue-600 cursor-pointer text-sm hover:text-white"
+    onClick={() => {
+      onSelect(item); // THIS IS MISSING
+      setOpen(false); // close dropdown
+    }}
+  >
+    {item}
+  </div>
+))}
+
         </div>
       )}
     </div>

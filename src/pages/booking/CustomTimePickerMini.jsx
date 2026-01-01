@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { GoClock } from "react-icons/go";
 import { IoChevronDown } from "react-icons/io5";
 
-export default function CustomTimePickerMini() {
+export default function CustomTimePickerMini({onSelect}) {
   const [open, setOpen] = useState(false);
   const [selectedTime, setSelectedTime] = useState("");
   const ref = useRef(null);
@@ -47,6 +47,7 @@ export default function CustomTimePickerMini() {
                 onClick={() => {
                   setSelectedTime(t);
                   setOpen(false);
+                    if (onSelect) onSelect(t); // <-- add this line
                 }}
               >
                 {t}

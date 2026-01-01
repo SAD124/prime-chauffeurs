@@ -13,6 +13,7 @@ import FAQ from './pages/faq/FAQ'
 import CheckFarePage from './pages/booking/CheckFarePage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ContactPage from './pages/navbar/ContactPage'
+import PaymentPage from "./pages/booking/PaymentPage";
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
       <Route path="/book" element={<BookYourComfort/>} />
       <Route path="/contact" element={<ContactPage/>} />
       <Route path="/checkout" element={<CheckoutPage />} />
+      <Route path="/payment" element={<PaymentPage />} />
     </Routes>
   </div>
 

@@ -20,9 +20,16 @@ export default function AirportDropoff({ onSelect }) {
 
   return (
     <>
-      <AirportDropoffMini/>
+      <AirportDropoffMini onSelect={onSelect}/>
       <div className="relative w-full hidden md:block">
-      <button onClick={() => setOpen(!open)} className="...">Select Airport as Pickup</button>
+      <button
+  onClick={() => setOpen(!open)}
+  className="w-full rounded-md h-10 border border-gray-300 bg-gray-100 shadow-lg flex items-center justify-center text-[16px] font-medium
+             hover:bg-gray-200 active:scale-[0.98] transition"
+>
+  Select Airport as Dropoff
+</button>
+
       {open && (
         <div className="absolute bg-white w-full border shadow-lg z-20">
           {airports.map((item, idx) => (

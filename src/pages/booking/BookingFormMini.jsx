@@ -1,16 +1,15 @@
 "use client";
 import { useState } from "react";
-import { Armchair, Car, FileText } from "lucide-react";
+import { Armchair, Car, Pin } from "lucide-react";
 import { GoClock } from "react-icons/go";
 import { LuMapPin } from "react-icons/lu";
-import { Pin } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
 
 import AirportPicker from "./AirportPicker";
 import AirportDropoff from "./AirportDropoff";
 import CustomTimePicker from "./CustomTimePicker";
 
-export default function BookingFormMini() {
+export default function BookingFormMini({ onCheckFare }) {
   // --- Form State ---
   const [pickupLocation, setPickupLocation] = useState("");
   const [dropoffLocation, setDropoffLocation] = useState("");
@@ -47,29 +46,6 @@ export default function BookingFormMini() {
   const handleDropoffSelect = (location) => {
     setDropoffLocation(location);
     toast.success(`Drop-off location set to ${location}`);
-  };
-
-  // --- Check Fare Handler ---
-  const handleCheckFare = () => {
-    if (!pickupLocation || !dropoffLocation || !pickupDate || !pickupTime) {
-      toast.error("Please fill all required fields!");
-      return;
-    }
-
-    const bookingData = {
-      pickupLocation,
-      dropoffLocation,
-      pickupDate,
-      pickupTime,
-      transferType,
-      extraStop,
-      seats,
-      specialNotes,
-    };
-
-    localStorage.setItem("bookingData", JSON.stringify(bookingData));
-    toast.success("Booking saved! Redirecting...");
-    window.open("/check-fare-mobile", "_blank"); // point to your mini check fare page
   };
 
   return (
@@ -246,7 +222,18 @@ export default function BookingFormMini() {
       {/* Final Button */}
       <button
         className="py-4 rounded-md bg-black text-white text-[18px] font-medium shadow-md"
-        onClick={handleCheckFare}
+        onClick={() =>
+          onCheckFare({
+            pickupLocation,
+            dropoffLocation,
+            pickupDate,
+            pickupTime,
+            transferType,
+            extraStop,
+            seats,
+            specialNotes,
+          })
+        }
       >
         CHECK FARE
       </button>
