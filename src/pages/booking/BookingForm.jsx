@@ -24,6 +24,10 @@ export default function BookingForm() {
   const [seats, setSeats] = useState("Select Seats");
   const [specialNotes, setSpecialNotes] = useState("");
 
+  // --- Round Trip State ---
+  const [returnDate, setReturnDate] = useState("");
+  const [returnTime, setReturnTime] = useState("");
+
   // --- Dropdown states ---
   const [openTransfer, setOpenTransfer] = useState(false);
   const [openStop, setOpenStop] = useState(false);
@@ -49,6 +53,11 @@ export default function BookingForm() {
       toast.error("Please fill all required fields!");
       return;
     }
+    if (transferType === "Two Way (Round Trip)" && (!returnDate || !returnTime)) {
+      toast.error("Please fill Return Date & Time for round trip!");
+      return;
+    }
+
     const bookingData = {
       pickupLocation,
       dropoffLocation,
@@ -57,7 +66,9 @@ export default function BookingForm() {
       transferType,
       extraStop,
       seats,
-      specialNotes
+      specialNotes,
+      returnDate,
+      returnTime,
     };
     localStorage.setItem("bookingData", JSON.stringify(bookingData));
     navigate("/check-fare");
@@ -115,13 +126,15 @@ export default function BookingForm() {
         </div>
 
         {/* PICKUP DATE & TIME */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="flex flex-col gap-1">
-            <label className="text-[15px] font-medium text-gray-600">Pickup Date</label>
-            <input type="date" className="py-3 px-4 rounded-md border border-gray-300" value={pickupDate} onChange={(e) => setPickupDate(e.target.value)} />
-          </div>
-          <CustomTimePicker onSelect={setPickupTime} />
-        </div>
+<div className="grid grid-cols-2 gap-4">
+  <div className="flex flex-col gap-1 justify-center">
+    <label className="text-[15px] font-medium text-gray-600">Pickup Date</label>
+    <input type="date" className="py-3 px-4 rounded-md border border-gray-300 shadow-md" value={pickupDate} onChange={(e) => setPickupDate(e.target.value)} />
+  </div>
+  <CustomTimePicker onSelect={setPickupTime} label="Pickup Time" />
+</div>
+
+
 
         {/* TRANSFER TYPE & EXTRA STOP & SEATS */}
         <div className="grid grid-cols-3 gap-4">
@@ -136,7 +149,10 @@ export default function BookingForm() {
             {openTransfer && (
               <div className="absolute w-full bg-white border rounded-md shadow-md mt-1 z-10 max-h-60 overflow-y-auto">
                 {transferOptions.map((opt, idx) => (
-                  <div key={idx} className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer" onClick={() => { setTransferType(opt); setOpenTransfer(false); }}>
+                  <div key={idx} className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer" onClick={() => { 
+                    setTransferType(opt); 
+                    setOpenTransfer(false); 
+                  }}>
                     {opt}
                   </div>
                 ))}
@@ -183,14 +199,25 @@ export default function BookingForm() {
           </div>
         </div>
 
+        {/* CONDITIONAL RETURN DATE/TIME */}
+{transferType === "Two Way (Round Trip)" && (
+  <div className="grid grid-cols-2 gap-4 mt-2">
+    <div className="flex flex-col gap-1 justify-center">
+      <label className="text-[15px] font-medium text-gray-600">Return Date</label>
+      <input type="date" className="py-3 px-4 rounded-md border border-gray-300 shadow-md" value={returnDate} onChange={(e) => setReturnDate(e.target.value)} />
+    </div>
+    <CustomTimePicker onSelect={setReturnTime} label="Return Time" />
+  </div>
+)}
+
         {/* SPECIAL NOTES */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 mt-3">
           <label className="text-[14px] font-medium text-gray-500">Special Requests or Notes (Optional)</label>
           <textarea rows={3} placeholder="Add any special requests..." className="w-full bg-white rounded-md shadow-lg px-4 py-2 border border-gray-300" value={specialNotes} onChange={(e) => setSpecialNotes(e.target.value)} />
         </div>
 
         {/* FINAL BUTTON */}
-        <button className="py-4 rounded-md bg-black text-white text-[18px] font-medium shadow-md" onClick={handleCheckFare}>
+        <button className="py-4 rounded-md bg-[#d1d5dc] text-gray-500 text-[16px] font-medium shadow-md mt-4" onClick={handleCheckFare}>
           CHECK FARE
         </button>
       </div>

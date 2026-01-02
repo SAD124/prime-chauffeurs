@@ -2,6 +2,7 @@ import { HashLink } from "react-router-hash-link";
 import HeroMini from "./HeroMini";
 
 const HeroSection = () => {
+  
   return (
     <>
       {/* Mobile Hero */}
@@ -47,7 +48,7 @@ const HeroSection = () => {
           <div className="flex gap-4 mt-6">
             <HashLink
               smooth
-              to="/#booking-section"
+              to="/#book"
               className="bg-[#D4C5A0] px-8 py-3 rounded-md text-white hover:scale-105 transition"
             >
               Book now
@@ -55,7 +56,7 @@ const HeroSection = () => {
 
             <HashLink
               smooth
-              to="/#booking-section"
+              to="/#book"
               className="border border-[#D4C5A0] px-8 py-3 rounded-md text-white hover:bg-white hover:text-black transition"
             >
               Get Discount

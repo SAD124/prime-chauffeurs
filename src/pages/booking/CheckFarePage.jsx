@@ -117,7 +117,7 @@ export default function CheckFarePage() {
   {/* Go Previous Button */}
   <button
     className="mt-6 w-full py-1 border border-[#D4C5A0] text-black rounded-full flex items-center justify-center gap-2 font-semibold"
-    onClick={() => window.close()}
+    onClick={() => navigate("/book")}
   >
     <span className="text-xl">&larr;</span> Previous
   </button>

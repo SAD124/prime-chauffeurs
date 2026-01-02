@@ -1,13 +1,8 @@
-import { useEffect } from "react";
 import BookingForm from "./BookingForm";
 import BookYourComfortMini from "./BookYourComfortMini";
 import MapSection from "./MapSection";
 
 const BookYourComfort = () => {
-  // Scroll to top on component mount
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
 
   return (
     <>
