@@ -45,7 +45,7 @@ export default function BookingForm() {
 
   // --- Shared Check Fare Handler ---
   const handleCheckFare = () => {
-    if (!pickupLocation || !dropoffLocation || !pickupDate || !pickupTime) {
+    if (!pickupLocation || !dropoffLocation || !pickupDate) {
       toast.error("Please fill all required fields!");
       return;
     }
